@@ -8,31 +8,49 @@
 
 #import "JVSChannel.h"
 
-@interface JVSChannel()
-@property (retain,nonatomic) NSMutableArray *items;
-@end
-
 @implementation JVSChannel
 
-@synthesize items;
+@synthesize playerItemSource;
+@synthesize playerFactory;
+@synthesize playerDelegate;
 
--(id)init {
-    self = [super init];
-    if(self==nil) {
-        return self;
-    }
-    self.items = [[NSMutableArray alloc] init];
-    return self;
++(JVSChannel*)channelWithItemSource:(id<JVSPlayerItemSource>)source {
+    JVSChannel * channel = [[JVSChannel alloc] init];
+    channel.playerItemSource = source;
+    return channel;
+}
+
+-(void)makeReady {
+    [self.playerItemSource makeItemSourceReadyAndThen:^{
+    }];
+}
+
+-(id<JVSPlayerItem>)nextItem {
+    return nil;
+}
+-(id<JVSPlayerItem>)prevItem {
+    return nil;
 }
 
 -(void)player:(id<JVSPlayer>)player didFinishItem:(id<JVSPlayerItem>)item {
-    // evaluate caching policy
+    if( playerItemSource!=nil 
+        && [playerItemSource respondsToSelector:@selector(fetchItemsAfter:withCount:andThen:)]) {
+        [playerItemSource fetchItemsAfter:item withCount:1 andThen:^(NSArray *items) {
+            if([items count]>0) {
+                id<JVSPlayer> playerForNextItem = [playerFactory playerForItem:items[0]];
+                [playerForNextItem setDelegate:self];
+                [player setDelegate:nil];
+                /* policy is to advance to the next item && */
+                [playerForNextItem play:items[0]];
+            }
+        }];
+    }
 }
--(id<JVSPlayerItem>)playerWantsNextItem:(id<JVSPlayer>)player {
-    return nil;
+-(void)player:(id<JVSPlayer>)player didBeginItem:(id<JVSPlayerItem>)item {
 }
--(id<JVSPlayerItem>)playerWantsPrevItem:(id<JVSPlayer>)player {
-    return nil;
+-(void)player:(id<JVSPlayer>)player didPauseItem:(id<JVSPlayerItem>)item {
+}
+-(void)player:(id<JVSPlayer>)player didResumeItem:(id<JVSPlayerItem>)item {
 }
 
 @end

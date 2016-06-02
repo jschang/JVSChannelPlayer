@@ -1,0 +1,4 @@
+target 'JVSChannelPlayerDemo' do
+platform :ios, '7'
+    pod 'MWFeedParser'
+end

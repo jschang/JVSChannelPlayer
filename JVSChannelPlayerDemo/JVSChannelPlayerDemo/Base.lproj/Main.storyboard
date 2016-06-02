@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,75 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vH-Eq-Wnd">
+                                <rect key="frame" x="20" y="133" width="31" height="30"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="prevTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="521-4h-KcW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-5J-Zj2">
+                                <rect key="frame" x="548" y="133" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5B7-Th-XFk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbt-sh-fCa">
+                                <rect key="frame" x="285" y="133" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="46M-30-3NC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuV-oY-rww">
+                                <rect key="frame" x="20" y="28" width="554" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIW-fs-62V">
+                                <rect key="frame" x="20" y="57" width="554" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Time in Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFW-qs-1p8">
+                                <rect key="frame" x="20" y="86" width="554" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XIW-fs-62V" secondAttribute="trailing" constant="6" id="5IA-kR-KMd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TuV-oY-rww" secondAttribute="trailing" constant="6" id="8In-Cv-Cgm"/>
+                            <constraint firstItem="qFW-qs-1p8" firstAttribute="top" secondItem="XIW-fs-62V" secondAttribute="bottom" constant="8" id="RTH-bZ-yLY"/>
+                            <constraint firstItem="4vH-Eq-Wnd" firstAttribute="top" secondItem="qFW-qs-1p8" secondAttribute="bottom" constant="26" id="T4q-5i-Ccv"/>
+                            <constraint firstItem="4vH-Eq-Wnd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Tox-Th-VoM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qFW-qs-1p8" secondAttribute="trailing" constant="6" id="U3c-Su-esa"/>
+                            <constraint firstItem="Qbt-sh-fCa" firstAttribute="top" secondItem="qFW-qs-1p8" secondAttribute="bottom" constant="26" id="XcO-ni-2RD"/>
+                            <constraint firstItem="TuV-oY-rww" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="YVF-JI-Roc"/>
+                            <constraint firstItem="j2t-5J-Zj2" firstAttribute="top" secondItem="qFW-qs-1p8" secondAttribute="bottom" constant="26" id="eTV-RV-Zzh"/>
+                            <constraint firstItem="j2t-5J-Zj2" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="er6-TQ-as5"/>
+                            <constraint firstItem="qFW-qs-1p8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kbB-Kr-ZDn"/>
+                            <constraint firstItem="Qbt-sh-fCa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kdz-1V-tlP"/>
+                            <constraint firstItem="XIW-fs-62V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pvV-Jo-pY6"/>
+                            <constraint firstItem="XIW-fs-62V" firstAttribute="top" secondItem="TuV-oY-rww" secondAttribute="bottom" constant="8" id="wRF-BW-MWl"/>
+                            <constraint firstItem="TuV-oY-rww" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="y7p-H7-3lw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentChannelName" destination="TuV-oY-rww" id="3PW-Fv-6lj"/>
+                        <outlet property="currentItemName" destination="XIW-fs-62V" id="HQj-Md-yIj"/>
+                        <outlet property="currentProgress" destination="qFW-qs-1p8" id="wEu-ee-q5C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="624" y="460"/>
         </scene>
     </scenes>
 </document>

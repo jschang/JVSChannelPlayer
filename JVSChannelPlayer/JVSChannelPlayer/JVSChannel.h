@@ -11,11 +11,14 @@
 
 @interface JVSChannel : NSObject <JVSPlayerDelegate>
 
-@property (retain,nonatomic) id<JVSPlayerItemFactory> itemFactory;
-@property (retain,nonatomic) id<JVSPlayerFactory> playerFactory;
 @property (retain,nonatomic) id<JVSPlayerItemSource> playerItemSource;
+@property (retain,nonatomic) id<JVSPlayerFactory> playerFactory;
+@property (retain,nonatomic) id<JVSPlayerDelegate> playerDelegate;
 
 -(id<JVSPlayerItem>)nextItem;
 -(id<JVSPlayerItem>)prevItem;
+
++(JVSChannel*)channelWithItemSource:(id<JVSPlayerItemSource>)source;
+-(void)makeReady;
 
 @end

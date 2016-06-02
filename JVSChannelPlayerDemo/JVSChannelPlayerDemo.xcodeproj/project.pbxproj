@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92488F291CFF281200077C78 /* WebRequestItemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F281CFF281200077C78 /* WebRequestItemSource.m */; };
+		92488F2C1CFF282800077C78 /* LocalCacheItemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F2B1CFF282800077C78 /* LocalCacheItemSource.m */; };
+		92488F301CFF295900077C78 /* NWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F2F1CFF295900077C78 /* NWURLConnection.m */; };
+		92488F331CFF2F5A00077C78 /* DemoItemFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F321CFF2F5A00077C78 /* DemoItemFactory.m */; };
 		924A4CF01CFE97F300EC9B12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4CEF1CFE97F300EC9B12 /* main.m */; };
 		924A4CF31CFE97F300EC9B12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4CF21CFE97F300EC9B12 /* AppDelegate.m */; };
 		924A4CF61CFE97F300EC9B12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4CF51CFE97F300EC9B12 /* ViewController.m */; };
@@ -16,6 +20,8 @@
 		924A4D091CFE97F300EC9B12 /* JVSChannelPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4D081CFE97F300EC9B12 /* JVSChannelPlayerDemoTests.m */; };
 		924A4D141CFE97F300EC9B12 /* JVSChannelPlayerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4D131CFE97F300EC9B12 /* JVSChannelPlayerDemoUITests.m */; };
 		924A4D2B1CFE984F00EC9B12 /* JVSChannelPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A4D2A1CFE984F00EC9B12 /* JVSChannelPlayer.framework */; };
+		92DD07D61D0071F0009F5D5B /* DemoPlayerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DD07D51D0071F0009F5D5B /* DemoPlayerFactory.m */; };
+		BE21293111F7CA248780B4CB /* libPods-JVSChannelPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 152F2F42A5B3FD868EEFE1A4 /* libPods-JVSChannelPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070E3002577F96DC4DB9369D /* Pods-JVSChannelPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVSChannelPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JVSChannelPlayerDemo/Pods-JVSChannelPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		152F2F42A5B3FD868EEFE1A4 /* libPods-JVSChannelPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JVSChannelPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		725CE85B459860D3A31522CD /* Pods-JVSChannelPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVSChannelPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JVSChannelPlayerDemo/Pods-JVSChannelPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		92488F271CFF281200077C78 /* WebRequestItemSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebRequestItemSource.h; path = ItemSources/WebRequestItemSource.h; sourceTree = "<group>"; };
+		92488F281CFF281200077C78 /* WebRequestItemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebRequestItemSource.m; path = ItemSources/WebRequestItemSource.m; sourceTree = "<group>"; };
+		92488F2A1CFF282800077C78 /* LocalCacheItemSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalCacheItemSource.h; path = ItemSources/LocalCacheItemSource.h; sourceTree = "<group>"; };
+		92488F2B1CFF282800077C78 /* LocalCacheItemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalCacheItemSource.m; path = ItemSources/LocalCacheItemSource.m; sourceTree = "<group>"; };
+		92488F2E1CFF294500077C78 /* NWURLConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWURLConnection.h; sourceTree = "<group>"; };
+		92488F2F1CFF295900077C78 /* NWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWURLConnection.m; sourceTree = "<group>"; };
+		92488F311CFF2F5A00077C78 /* DemoItemFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoItemFactory.h; sourceTree = "<group>"; };
+		92488F321CFF2F5A00077C78 /* DemoItemFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoItemFactory.m; sourceTree = "<group>"; };
 		924A4CEB1CFE97F300EC9B12 /* JVSChannelPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JVSChannelPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		924A4CEF1CFE97F300EC9B12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		924A4CF11CFE97F300EC9B12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +70,8 @@
 		924A4D131CFE97F300EC9B12 /* JVSChannelPlayerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVSChannelPlayerDemoUITests.m; sourceTree = "<group>"; };
 		924A4D151CFE97F300EC9B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924A4D2A1CFE984F00EC9B12 /* JVSChannelPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JVSChannelPlayer.framework; path = "../JVSChannelPlayer/build/Debug-iphoneos/JVSChannelPlayer.framework"; sourceTree = "<group>"; };
+		92DD07D41D0071F0009F5D5B /* DemoPlayerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPlayerFactory.h; sourceTree = "<group>"; };
+		92DD07D51D0071F0009F5D5B /* DemoPlayerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPlayerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				924A4D2B1CFE984F00EC9B12 /* JVSChannelPlayer.framework in Frameworks */,
+				BE21293111F7CA248780B4CB /* libPods-JVSChannelPlayerDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +101,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B7742475EB8BB11D8E131BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				152F2F42A5B3FD868EEFE1A4 /* libPods-JVSChannelPlayerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840772664DB06271A5B9A6C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				070E3002577F96DC4DB9369D /* Pods-JVSChannelPlayerDemo.debug.xcconfig */,
+				725CE85B459860D3A31522CD /* Pods-JVSChannelPlayerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		92488F261CFF27E000077C78 /* ItemSources */ = {
+			isa = PBXGroup;
+			children = (
+				92488F271CFF281200077C78 /* WebRequestItemSource.h */,
+				92488F281CFF281200077C78 /* WebRequestItemSource.m */,
+				92488F2A1CFF282800077C78 /* LocalCacheItemSource.h */,
+				92488F2B1CFF282800077C78 /* LocalCacheItemSource.m */,
+			);
+			name = ItemSources;
+			sourceTree = "<group>";
+		};
+		92488F2D1CFF293400077C78 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				92488F2E1CFF294500077C78 /* NWURLConnection.h */,
+				92488F2F1CFF295900077C78 /* NWURLConnection.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		924A4CE21CFE97F300EC9B12 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +146,8 @@
 				924A4D071CFE97F300EC9B12 /* JVSChannelPlayerDemoTests */,
 				924A4D121CFE97F300EC9B12 /* JVSChannelPlayerDemoUITests */,
 				924A4CEC1CFE97F300EC9B12 /* Products */,
+				840772664DB06271A5B9A6C9 /* Pods */,
+				7B7742475EB8BB11D8E131BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,10 +164,16 @@
 		924A4CED1CFE97F300EC9B12 /* JVSChannelPlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				92488F2D1CFF293400077C78 /* Library */,
+				92488F261CFF27E000077C78 /* ItemSources */,
 				924A4CF11CFE97F300EC9B12 /* AppDelegate.h */,
 				924A4CF21CFE97F300EC9B12 /* AppDelegate.m */,
 				924A4CF41CFE97F300EC9B12 /* ViewController.h */,
 				924A4CF51CFE97F300EC9B12 /* ViewController.m */,
+				92488F311CFF2F5A00077C78 /* DemoItemFactory.h */,
+				92488F321CFF2F5A00077C78 /* DemoItemFactory.m */,
+				92DD07D41D0071F0009F5D5B /* DemoPlayerFactory.h */,
+				92DD07D51D0071F0009F5D5B /* DemoPlayerFactory.m */,
 				924A4CF71CFE97F300EC9B12 /* Main.storyboard */,
 				924A4CFA1CFE97F300EC9B12 /* Assets.xcassets */,
 				924A4CFC1CFE97F300EC9B12 /* LaunchScreen.storyboard */,
@@ -151,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 924A4D181CFE97F300EC9B12 /* Build configuration list for PBXNativeTarget "JVSChannelPlayerDemo" */;
 			buildPhases = (
+				164CCBC74DD35277354D9103 /* 📦 Check Pods Manifest.lock */,
 				924A4CE71CFE97F300EC9B12 /* Sources */,
 				924A4CE81CFE97F300EC9B12 /* Frameworks */,
 				924A4CE91CFE97F300EC9B12 /* Resources */,
+				6042767CB584CF69EC070730 /* 📦 Embed Pods Frameworks */,
+				7ADEBC78D79A7E8AF89AD31B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,13 +337,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		164CCBC74DD35277354D9103 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6042767CB584CF69EC070730 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JVSChannelPlayerDemo/Pods-JVSChannelPlayerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ADEBC78D79A7E8AF89AD31B /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JVSChannelPlayerDemo/Pods-JVSChannelPlayerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		924A4CE71CFE97F300EC9B12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DD07D61D0071F0009F5D5B /* DemoPlayerFactory.m in Sources */,
+				92488F2C1CFF282800077C78 /* LocalCacheItemSource.m in Sources */,
+				92488F291CFF281200077C78 /* WebRequestItemSource.m in Sources */,
+				92488F331CFF2F5A00077C78 /* DemoItemFactory.m in Sources */,
 				924A4CF61CFE97F300EC9B12 /* ViewController.m in Sources */,
 				924A4CF31CFE97F300EC9B12 /* AppDelegate.m in Sources */,
+				92488F301CFF295900077C78 /* NWURLConnection.m in Sources */,
 				924A4CF01CFE97F300EC9B12 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +536,7 @@
 		};
 		924A4D191CFE97F300EC9B12 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 070E3002577F96DC4DB9369D /* Pods-JVSChannelPlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JVSChannelPlayerDemo/Info.plist;
@@ -426,6 +548,7 @@
 		};
 		924A4D1A1CFE97F300EC9B12 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 725CE85B459860D3A31522CD /* Pods-JVSChannelPlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JVSChannelPlayerDemo/Info.plist;

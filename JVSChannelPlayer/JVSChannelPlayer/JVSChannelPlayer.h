@@ -16,35 +16,28 @@ FOUNDATION_EXPORT const unsigned char JVSChannelPlayerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <JVSChannelPlayer/PublicHeader.h>
 
-@protocol JVSPlayerItem
--(NSInteger)getItemId;
-@end
+#import "JVSProtocols.h"
+#import "JVSChannel.h"
+#import "JVSAVPlayerWrapper.h"
 
-@protocol JVSPlayer
--(void)play:(id<JVSPlayerItem>)item;
--(void)pause;
--(void)resume;
-@end
+@class JVSChannel;
 
-@protocol JVSPlayerDelegate
--(void)player:(id<JVSPlayer>)player didFinishItem:(id<JVSPlayerItem>)item;
--(void)player:(id<JVSPlayer>)player didBeginItem:(id<JVSPlayerItem>)item;
--(void)player:(id<JVSPlayer>)player didPauseItem:(id<JVSPlayerItem>)item;
--(void)player:(id<JVSPlayer>)player didResumeItem:(id<JVSPlayerItem>)item;
--(id<JVSPlayerItem>)playerWantsNextItem:(id<JVSPlayer>)player;
--(id<JVSPlayerItem>)playerWantsPrevItem:(id<JVSPlayer>)player;
-@end
+@interface JVSChannelPlayer : NSObject
 
-@protocol JVSPlayerItemSource
--(NSArray*)fetchMorePlayerItems;
-@end
+@property (retain,nonatomic,readonly) NSMutableArray* channels;
+@property (retain,nonatomic,readonly) JVSChannel* currentChannel;
 
-@protocol JVSPlayerFactory
--(id<JVSPlayer>)playerForItem:(id<JVSPlayerItem>)item;
-@end
+@property (retain,nonatomic) id<JVSPlayerFactory> playerFactory;
 
-@protocol JVSPlayerItemFactory
--(id<JVSPlayerItem>)playerItemWithDict:(NSDictionary*)dict;
-@end
+-(void)addChannel:(JVSChannel*)channel;
+-(void)removeChannel:(JVSChannel*)channel;
+-(JVSChannel*)nextChannel;
+-(JVSChannel*)prevChannel;
 
-#include "JVSChannel.h"
+/**
+ * Call once you've added all your channels...
+ * cascades through all channels and item sources
+ */
+-(void)makeReady;
+
+@end

@@ -1,1 +1,4 @@
+JVSChannelPlayerDemo/JVSChannelPlayerDemo.xcworkspace
 **/.DS_Store
+**/Pods/**
+**/*.lock

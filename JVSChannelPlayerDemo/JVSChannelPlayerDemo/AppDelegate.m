@@ -6,17 +6,31 @@
 //  Copyright © 2016 Jon Schang. All rights reserved.
 //
 
+#import <JVSChannelPlayer/JVSChannelPlayer.h>
 #import "AppDelegate.h"
+#import "DemoItemFactory.h"
+#import "ItemSources/WebRequestItemSource.h"
+#import "ItemSources/LocalCacheItemSource.h"
 
 @interface AppDelegate ()
-
+@property (strong,nonatomic) DemoItemFactory *itemFactory;
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate 
 
+@synthesize itemFactory;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.channelPlayer = [[JVSChannelPlayer alloc] init];
+    self.itemFactory = [[DemoItemFactory alloc] init];
+    
+    [self addChannel:9 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
+    [self addChannel:208 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
+    
+    [self.channelPlayer makeReady];
+     
     return YES;
 }
 
@@ -40,6 +54,20 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(JVSChannel*)addChannel:(int)channelId withFetchCount:(int)itemCount andUrl:(NSString*)url {
+    LocalCacheItemSource *localSource = [[LocalCacheItemSource alloc] init];
+    WebRequestItemSource *webSource = [WebRequestItemSource 
+            initWithItemCount:itemCount
+            andChannelId:channelId
+            andUrl:url
+            andFactory:self.itemFactory];
+    localSource.upstreamSource = webSource;
+    JVSChannel* channel = [[JVSChannel alloc] init];
+    channel.playerItemSource = localSource;
+    [self.channelPlayer addChannel:channel];
+    return channel;
 }
 
 @end
