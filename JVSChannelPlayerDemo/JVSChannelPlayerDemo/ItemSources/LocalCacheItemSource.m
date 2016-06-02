@@ -19,7 +19,7 @@
         if(andThen!=nil) { andThen(); }
     }];
 }
--(void)addItem:(id<JVSPlayerItem>)item {
+-(void)addItem:(id<JVSPlayerItem>)item afterItem:(id<JVSPlayerItem>)prevItem {
 }
 -(void)fetchItem:(NSInteger)itemId andThen:(void(^)(id<JVSPlayerItem>))andThen {
 }

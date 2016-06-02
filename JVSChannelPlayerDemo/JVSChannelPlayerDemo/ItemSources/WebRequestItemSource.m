@@ -29,12 +29,13 @@
     return source;
 }
 
--(void)makeItemSourceReadyandThen:(void(^)(void))andThen {
+-(void)makeItemSourceReadyAndThen:(void(^)())andThen {
     NSLog(@"WebRequestItemSource makeItemSourceReady");
     if(andThen!=nil) { andThen(); }
 }
 
--(void)addItem:(id<JVSPlayerItem>)item {
+-(void)addItem:(id<JVSPlayerItem>)item afterItem:(id<JVSPlayerItem>)prevItem {
+
     [NSException raise:@"UnsupportedOperation" format:@"We don't save items here, that's in the caching layer.  =P"];
 }
 -(void)fetchItem:(NSInteger)itemId andThen:(void(^)(id<JVSPlayerItem>))andThen {

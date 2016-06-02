@@ -66,7 +66,7 @@
  * If afterItem is not nil, then inserted after.
  * Case when we want to add to head is not supported.
  */
--(void)addItem:(id<JVSPlayerItem>)item afterItem:(id<JVSPlayerItem>)item;
+-(void)addItem:(id<JVSPlayerItem>)item afterItem:(id<JVSPlayerItem>)prevItem;
 -(void)fetchItem:(NSInteger)itemId andThen:(void(^)(id<JVSPlayerItem> item))andThen;
 -(void)fetchItemsAfter:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray* items))andThen;
 -(void)fetchItemsBefore:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray* items))andThen;
