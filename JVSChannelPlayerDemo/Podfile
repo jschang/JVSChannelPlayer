@@ -1,4 +1,7 @@
 target 'JVSChannelPlayerDemo' do
 platform :ios, '7'
     pod 'MWFeedParser'
+    pod 'AFNetworking', '~> 3.0'
+    pod 'JSONModel'
+    pod "MagicalRecord"
 end

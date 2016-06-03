@@ -7,7 +7,6 @@
 //
 
 #import "LocalCacheItemSource.h"
-#import "NWURLConnection.h"
 
 @implementation LocalCacheItemSource
 

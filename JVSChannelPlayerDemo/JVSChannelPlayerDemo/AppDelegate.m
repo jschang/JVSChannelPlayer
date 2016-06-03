@@ -11,9 +11,11 @@
 #import "DemoItemFactory.h"
 #import "ItemSources/WebRequestItemSource.h"
 #import "ItemSources/LocalCacheItemSource.h"
+#import "ItemSources/RSSOrAtomFeedParser.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface AppDelegate ()
-@property (strong,nonatomic) DemoItemFactory *itemFactory;
+@property (strong,nonatomic,retain) DemoItemFactory *itemFactory;
 @end
 
 @implementation AppDelegate 
@@ -26,8 +28,11 @@
     self.channelPlayer = [[JVSChannelPlayer alloc] init];
     self.itemFactory = [[DemoItemFactory alloc] init];
     
-    [self addChannel:9 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
-    [self addChannel:208 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"JVSChannelPlayerDemo"];
+    
+    [self addChannel:1 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
+    [self addChannel:2 withFetchCount:2 andUrl:@"https://feeds.feedburner.com/economst/audiovideo/moneytalks?format=xml"];
+    [self addChannel:3 withFetchCount:2 andUrl:@"http://www.quickanddirtytips.com/xml/getitdone.xml"];
     
     [self.channelPlayer makeReady];
      
