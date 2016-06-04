@@ -2,7 +2,7 @@
 //  FeedItem+CoreDataProperties.h
 //  JVSChannelPlayerDemo
 //
-//  Created by Jonathan Schang on 6/3/16.
+//  Created by Jonathan Schang on 6/4/16.
 //  Copyright © 2016 Jon Schang. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,14 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *author;
 @property (nullable, nonatomic, retain) NSString *content;
 @property (nullable, nonatomic, retain) NSDate *date;
+@property (nullable, nonatomic, retain) NSDate *fetchDate;
 @property (nullable, nonatomic, retain) NSString *identifier;
+@property (nullable, nonatomic, retain) NSDate *lastPlay;
 @property (nullable, nonatomic, retain) NSString *link;
+@property (nullable, nonatomic, retain) NSNumber *playCount;
 @property (nullable, nonatomic, retain) NSString *summary;
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSDate *updated;
-@property (nullable, nonatomic, retain) NSDate *fetchDate;
-@property (nullable, nonatomic, retain) NSNumber *playCount;
-@property (nullable, nonatomic, retain) NSDate *lastPlay;
+@property (nullable, nonatomic, retain) NSNumber *favorited;
+@property (nullable, nonatomic, retain) NSNumber *id;
 @property (nullable, nonatomic, retain) NSOrderedSet<FeedItemEnclosure *> *enclosures;
 @property (nullable, nonatomic, retain) Feed *feed;
 

@@ -11,4 +11,20 @@
 
 @implementation DemoItemFactory
 
+/**
+ * Implement this one when pulling directly from the web,
+ * prolly a json source.
+ */
+-(id<JVSPlayerItem>)playerItemWithDict:(NSDictionary*)dict {
+    return nil;
+}
+
+/**
+ * Implement this one to pull from CoreData,
+ * when wrapping a player item source that pulls from the web.
+ */
+-(id<JVSPlayerItem>)playerItemWithItem:(id<JVSPlayerItem>)item {
+    return nil;
+}
+
 @end

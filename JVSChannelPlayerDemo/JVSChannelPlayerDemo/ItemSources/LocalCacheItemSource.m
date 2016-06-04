@@ -19,12 +19,16 @@
     }];
 }
 -(void)addItem:(id<JVSPlayerItem>)item afterItem:(id<JVSPlayerItem>)prevItem {
+    [upstreamSource addItem:item afterItem:prevItem];
 }
 -(void)fetchItem:(NSInteger)itemId andThen:(void(^)(id<JVSPlayerItem>))andThen {
+    [upstreamSource fetchItem:itemId andThen:andThen];
 }
 -(void)fetchItemsAfter:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
+    [upstreamSource fetchItemsBefore:item withCount:count andThen:andThen];
 }
 -(void)fetchItemsBefore:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
+    [upstreamSource fetchItemsBefore:item withCount:count andThen:andThen];
 }
 
 @end

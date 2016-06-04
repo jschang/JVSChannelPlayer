@@ -9,9 +9,13 @@
 #import "WebRequestItemSource.h"
 #import "RSSOrAtomFeedParser.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import "../Items/DemoItemBase.h"
 #import "../CoreDataModel/Feed.h"
 #import "../CoreDataModel/FeedItem.h"
 #import "../CoreDataModel/FeedItemEnclosure.h"
+
+NSObject *idLock;
+#define LAST_ID_KEY @"WebRequestItemSource.lastId"
 
 @interface WebRequestItemSource ()
 @property (strong,nonatomic,retain) RSSOrAtomFeedParser *rssParser; 
@@ -26,6 +30,24 @@
 @synthesize itemFactory;
 @synthesize url;
 @synthesize feed;
+
++(void) initialize {
+    idLock = [[NSObject alloc] init];
+    if([[NSUserDefaults standardUserDefaults] objectForKey:LAST_ID_KEY]==0) {
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:LAST_ID_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
++(NSInteger) nextId {
+    @synchronized(idLock) {
+        NSInteger lastId = [[NSUserDefaults standardUserDefaults] integerForKey:LAST_ID_KEY];
+        lastId++;
+        [[NSUserDefaults standardUserDefaults] setInteger:lastId forKey:LAST_ID_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return lastId;
+    }
+}
 
 +(WebRequestItemSource*)initWithItemCount:(int)count 
         andChannelId:(int)channelId 
@@ -56,6 +78,7 @@
             NSArray *feeds = [Feed MR_findAllWithPredicate:predicate];
             if([feeds count]==0) {
                 feed = [Feed MR_createEntity];
+                feed.id = [NSNumber numberWithInteger:self.channelId];
                 feed.url = info.link;
                 feed.summary = info.summary;
                 feed.displayName = info.title;
@@ -73,6 +96,7 @@
             NSArray *items = [FeedItem MR_findAllWithPredicate:predicate];
             if([items count]==0) {
                 FeedItem *feedItem = [FeedItem MR_createEntity];
+                feedItem.id = [NSNumber numberWithInteger:[WebRequestItemSource nextId]];
                 feedItem.link = item.link;
                 feedItem.content = item.content;
                 feedItem.date = item.date;
@@ -100,13 +124,19 @@
             NSLog(@"got items: ");
             // TODO: cleanup with a configurable retention policy
             NSPredicate *predicate = [NSPredicate 
-                predicateWithFormat:@"item.feed.url = %@ && (item.playCount = 0 || item.playCount = nil) "//&& feedItem.lastPlay<%@"
+                predicateWithFormat:@"item.feed.url = %@ "
+                                    "&& (item.playCount = null || item.playCount = 0) "
+                                    "&& (item.favorited = null || item.favorited = 0) "
+                                    "&& item.lastPlay < %@ "
                 , feed.url
                 , [NSDate dateWithTimeIntervalSinceNow:-(60*60*24*60)]];
             [FeedItemEnclosure MR_deleteAllMatchingPredicate:predicate];
             [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
             predicate = [NSPredicate 
-                predicateWithFormat:@"feed.url = %@ && (playCount = 0 || playCount = nil)"// && lastPlay<%@"
+                predicateWithFormat:@"feed.url = %@ "
+                                    "&& (playCount = null || playCount = 0) "
+                                    "&& (favorited = null || favorited = 0) "
+                                    "&& lastPlay < %@ "
                 , feed.url
                 , [NSDate dateWithTimeIntervalSinceNow:-(60*60*24*60)]];
             [FeedItem MR_deleteAllMatchingPredicate:predicate];
@@ -121,11 +151,63 @@
     [NSException raise:@"UnsupportedOperation" format:@"We don't save items here, that's in the caching layer.  =P"];
 }
 -(void)fetchItem:(NSInteger)itemId andThen:(void(^)(id<JVSPlayerItem>))andThen {
-    if(andThen!=nil) { andThen(nil); }
+    NSPredicate *predicate
+        = [NSPredicate predicateWithFormat:@"id = %@", itemId];
+    FeedItem *item = [FeedItem MR_findFirstWithPredicate:predicate];
+    NSArray *keys = [[[item entity] attributesByName] allKeys];
+    NSDictionary *dict = [item dictionaryWithValuesForKeys:keys];
+    if(andThen!=nil) {
+        andThen([itemFactory playerItemWithDict:dict]);
+    }
 }
--(void)fetchItemsAfter:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
+-(void)fetchItemsAfter:(DemoItemBase*)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
+    if(andThen!=nil) {
+        andThen([self fetchItemsFrom:item withCount:(int)count forwards:YES]);
+    }
 }
 -(void)fetchItemsBefore:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
+    if(andThen!=nil) {
+        andThen([self fetchItemsFrom:item withCount:(int)count forwards:NO]);
+    }
+}
+
+-(NSArray*) fetchItemsFrom:(DemoItemBase*)item withCount:(int)count forwards:(bool)forwards {
+    NSString * pred = forwards ? @"id > %@ && feed.id = %@" : @"id < %@ && feed.id = %@";
+    NSPredicate *filter = [NSPredicate predicateWithFormat:pred, item.id, self.channelId];
+    
+    NSFetchRequest *request = [FeedItem MR_requestAllWithPredicate:filter];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"id"
+        ascending:forwards?YES:NO];
+    
+    [request setSortDescriptors:@[sort]];
+    [request setReturnsDistinctResults:YES];
+    [request setFetchLimit:count];
+
+    NSArray *items = [FeedItem MR_executeFetchRequest:request];
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    for(FeedItem *item in items) {
+        NSArray *keys = [[[item entity] attributesByName] allKeys];
+        NSDictionary *dict = [item dictionaryWithValuesForKeys:keys];
+        [ret addObject:[itemFactory playerItemWithDict:dict]];
+    }
+    if(!forwards) {
+        [self reverse:ret];
+    }
+    return ret;
+}
+
+-(void)reverse:(NSMutableArray*)arr {
+    if ([arr count] <= 1)
+        return;
+    NSUInteger i = 0;
+    NSUInteger j = [arr count] - 1;
+    while (i < j) {
+        [arr exchangeObjectAtIndex:i
+                  withObjectAtIndex:j];
+
+        i++;
+        j--;
+    }
 }
 
 @end

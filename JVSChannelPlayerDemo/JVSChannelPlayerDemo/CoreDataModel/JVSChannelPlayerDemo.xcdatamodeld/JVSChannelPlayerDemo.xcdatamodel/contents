@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
     <entity name="Feed" representedClassName="Feed" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="lastFetchDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,7 +12,9 @@
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="favorited" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="fetchDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastPlay" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,8 +32,8 @@
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FeedItem" inverseName="enclosures" inverseEntity="FeedItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Feed" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Feed" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="FeedItem" positionX="-54" positionY="18" width="128" height="270"/>
         <element name="FeedItemEnclosure" positionX="-36" positionY="81" width="128" height="105"/>
-        <element name="FeedItem" positionX="-54" positionY="18" width="128" height="240"/>
     </elements>
 </model>

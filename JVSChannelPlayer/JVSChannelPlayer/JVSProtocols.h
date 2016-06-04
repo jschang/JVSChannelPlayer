@@ -19,15 +19,6 @@
 @protocol JVSPlayerItemFactory;
 
 @protocol JVSPlayerItem <NSObject>
-/**
- * A unique id for the item
- */
--(id)getItemId;
-/**
- * Returns the object that corresponds to whatever the player factory
- * can actually play.
- */
--(id)getPlayable;
 @end
 
 /**
@@ -95,7 +86,7 @@
  * Implement this one to pull from CoreData,
  * when wrapping a player item source that pulls from the web.
  */
--(id<JVSPlayerItem>)playerItemWithItem:(id<JVSPlayerItem>)dict;
+-(id<JVSPlayerItem>)playerItemWithItem:(id<JVSPlayerItem>)item;
 @end
 
 #endif /* JVSProtocols_h */

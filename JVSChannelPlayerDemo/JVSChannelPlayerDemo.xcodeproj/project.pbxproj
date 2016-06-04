@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921C807F1D0334580057BCBD /* Feed+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C80741D0334580057BCBD /* Feed+CoreDataProperties.m */; };
+		921C80801D0334580057BCBD /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C80761D0334580057BCBD /* Feed.m */; };
+		921C80811D0334580057BCBD /* FeedItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C80781D0334580057BCBD /* FeedItem+CoreDataProperties.m */; };
+		921C80821D0334580057BCBD /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C807A1D0334580057BCBD /* FeedItem.m */; };
+		921C80831D0334580057BCBD /* FeedItemEnclosure+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C807C1D0334580057BCBD /* FeedItemEnclosure+CoreDataProperties.m */; };
+		921C80841D0334580057BCBD /* FeedItemEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C807E1D0334580057BCBD /* FeedItemEnclosure.m */; };
+		921C80881D03391F0057BCBD /* DemoAVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C80871D03391F0057BCBD /* DemoAVItem.m */; };
+		921C808E1D0339410057BCBD /* DemoTTSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C808D1D0339410057BCBD /* DemoTTSItem.m */; };
+		921C80911D033D0F0057BCBD /* DemoItemBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C80901D033D0F0057BCBD /* DemoItemBase.m */; };
 		92488F291CFF281200077C78 /* WebRequestItemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F281CFF281200077C78 /* WebRequestItemSource.m */; };
 		92488F2C1CFF282800077C78 /* LocalCacheItemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F2B1CFF282800077C78 /* LocalCacheItemSource.m */; };
 		92488F331CFF2F5A00077C78 /* DemoItemFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F321CFF2F5A00077C78 /* DemoItemFactory.m */; };
@@ -22,12 +31,6 @@
 		92CAF0971D01B7730079AB24 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 92CAF0961D01B7730079AB24 /* Podfile */; };
 		92CAF09A1D01BEAC0079AB24 /* RSSOrAtomFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF0991D01BEAC0079AB24 /* RSSOrAtomFeedParser.m */; };
 		92CAF0D91D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF0D11D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld */; };
-		92CAF1521D01ED160079AB24 /* FeedItemEnclosure+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF1471D01ED160079AB24 /* FeedItemEnclosure+CoreDataProperties.m */; };
-		92CAF1531D01ED160079AB24 /* FeedItemEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF1491D01ED160079AB24 /* FeedItemEnclosure.m */; };
-		92CAF1541D01ED160079AB24 /* FeedItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF14B1D01ED160079AB24 /* FeedItem+CoreDataProperties.m */; };
-		92CAF1551D01ED160079AB24 /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF14D1D01ED160079AB24 /* FeedItem.m */; };
-		92CAF1561D01ED160079AB24 /* Feed+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF14F1D01ED160079AB24 /* Feed+CoreDataProperties.m */; };
-		92CAF1571D01ED160079AB24 /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF1511D01ED160079AB24 /* Feed.m */; };
 		92DD07D61D0071F0009F5D5B /* DemoPlayerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DD07D51D0071F0009F5D5B /* DemoPlayerFactory.m */; };
 		BE21293111F7CA248780B4CB /* libPods-JVSChannelPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 152F2F42A5B3FD868EEFE1A4 /* libPods-JVSChannelPlayerDemo.a */; };
 /* End PBXBuildFile section */
@@ -53,6 +56,24 @@
 		070E3002577F96DC4DB9369D /* Pods-JVSChannelPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVSChannelPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JVSChannelPlayerDemo/Pods-JVSChannelPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		152F2F42A5B3FD868EEFE1A4 /* libPods-JVSChannelPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JVSChannelPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725CE85B459860D3A31522CD /* Pods-JVSChannelPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVSChannelPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JVSChannelPlayerDemo/Pods-JVSChannelPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		921C80731D0334580057BCBD /* Feed+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feed+CoreDataProperties.h"; sourceTree = "<group>"; };
+		921C80741D0334580057BCBD /* Feed+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Feed+CoreDataProperties.m"; sourceTree = "<group>"; };
+		921C80751D0334580057BCBD /* Feed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
+		921C80761D0334580057BCBD /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
+		921C80771D0334580057BCBD /* FeedItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		921C80781D0334580057BCBD /* FeedItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		921C80791D0334580057BCBD /* FeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItem.h; sourceTree = "<group>"; };
+		921C807A1D0334580057BCBD /* FeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItem.m; sourceTree = "<group>"; };
+		921C807B1D0334580057BCBD /* FeedItemEnclosure+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedItemEnclosure+CoreDataProperties.h"; sourceTree = "<group>"; };
+		921C807C1D0334580057BCBD /* FeedItemEnclosure+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedItemEnclosure+CoreDataProperties.m"; sourceTree = "<group>"; };
+		921C807D1D0334580057BCBD /* FeedItemEnclosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemEnclosure.h; sourceTree = "<group>"; };
+		921C807E1D0334580057BCBD /* FeedItemEnclosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemEnclosure.m; sourceTree = "<group>"; };
+		921C80861D03391F0057BCBD /* DemoAVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAVItem.h; sourceTree = "<group>"; };
+		921C80871D03391F0057BCBD /* DemoAVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAVItem.m; sourceTree = "<group>"; };
+		921C808C1D0339410057BCBD /* DemoTTSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTTSItem.h; sourceTree = "<group>"; };
+		921C808D1D0339410057BCBD /* DemoTTSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTTSItem.m; sourceTree = "<group>"; };
+		921C808F1D033D0F0057BCBD /* DemoItemBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoItemBase.h; sourceTree = "<group>"; };
+		921C80901D033D0F0057BCBD /* DemoItemBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoItemBase.m; sourceTree = "<group>"; };
 		92488F271CFF281200077C78 /* WebRequestItemSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebRequestItemSource.h; path = ItemSources/WebRequestItemSource.h; sourceTree = "<group>"; };
 		92488F281CFF281200077C78 /* WebRequestItemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebRequestItemSource.m; path = ItemSources/WebRequestItemSource.m; sourceTree = "<group>"; };
 		92488F2A1CFF282800077C78 /* LocalCacheItemSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalCacheItemSource.h; path = ItemSources/LocalCacheItemSource.h; sourceTree = "<group>"; };
@@ -80,18 +101,6 @@
 		92CAF0981D01BEAC0079AB24 /* RSSOrAtomFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSOrAtomFeedParser.h; path = ItemSources/RSSOrAtomFeedParser.h; sourceTree = "<group>"; };
 		92CAF0991D01BEAC0079AB24 /* RSSOrAtomFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSOrAtomFeedParser.m; path = ItemSources/RSSOrAtomFeedParser.m; sourceTree = "<group>"; };
 		92CAF0D21D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JVSChannelPlayerDemo.xcdatamodel; sourceTree = "<group>"; };
-		92CAF1461D01ED160079AB24 /* FeedItemEnclosure+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedItemEnclosure+CoreDataProperties.h"; sourceTree = "<group>"; };
-		92CAF1471D01ED160079AB24 /* FeedItemEnclosure+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedItemEnclosure+CoreDataProperties.m"; sourceTree = "<group>"; };
-		92CAF1481D01ED160079AB24 /* FeedItemEnclosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemEnclosure.h; sourceTree = "<group>"; };
-		92CAF1491D01ED160079AB24 /* FeedItemEnclosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemEnclosure.m; sourceTree = "<group>"; };
-		92CAF14A1D01ED160079AB24 /* FeedItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedItem+CoreDataProperties.h"; sourceTree = "<group>"; };
-		92CAF14B1D01ED160079AB24 /* FeedItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedItem+CoreDataProperties.m"; sourceTree = "<group>"; };
-		92CAF14C1D01ED160079AB24 /* FeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItem.h; sourceTree = "<group>"; };
-		92CAF14D1D01ED160079AB24 /* FeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItem.m; sourceTree = "<group>"; };
-		92CAF14E1D01ED160079AB24 /* Feed+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feed+CoreDataProperties.h"; sourceTree = "<group>"; };
-		92CAF14F1D01ED160079AB24 /* Feed+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Feed+CoreDataProperties.m"; sourceTree = "<group>"; };
-		92CAF1501D01ED160079AB24 /* Feed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
-		92CAF1511D01ED160079AB24 /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
 		92DD07D41D0071F0009F5D5B /* DemoPlayerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPlayerFactory.h; sourceTree = "<group>"; };
 		92DD07D51D0071F0009F5D5B /* DemoPlayerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPlayerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +149,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		921C80851D0338E90057BCBD /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				921C80861D03391F0057BCBD /* DemoAVItem.h */,
+				921C80871D03391F0057BCBD /* DemoAVItem.m */,
+				921C808C1D0339410057BCBD /* DemoTTSItem.h */,
+				921C808D1D0339410057BCBD /* DemoTTSItem.m */,
+				921C808F1D033D0F0057BCBD /* DemoItemBase.h */,
+				921C80901D033D0F0057BCBD /* DemoItemBase.m */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		92488F261CFF27E000077C78 /* ItemSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +204,7 @@
 			children = (
 				92CAF0B01D01D9CA0079AB24 /* CoreDataModel */,
 				92488F261CFF27E000077C78 /* ItemSources */,
+				921C80851D0338E90057BCBD /* Items */,
 				924A4CF11CFE97F300EC9B12 /* AppDelegate.h */,
 				924A4CF21CFE97F300EC9B12 /* AppDelegate.m */,
 				924A4CF41CFE97F300EC9B12 /* ViewController.h */,
@@ -229,18 +252,18 @@
 			isa = PBXGroup;
 			children = (
 				92CAF0D11D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld */,
-				92CAF1461D01ED160079AB24 /* FeedItemEnclosure+CoreDataProperties.h */,
-				92CAF1471D01ED160079AB24 /* FeedItemEnclosure+CoreDataProperties.m */,
-				92CAF1481D01ED160079AB24 /* FeedItemEnclosure.h */,
-				92CAF1491D01ED160079AB24 /* FeedItemEnclosure.m */,
-				92CAF14A1D01ED160079AB24 /* FeedItem+CoreDataProperties.h */,
-				92CAF14B1D01ED160079AB24 /* FeedItem+CoreDataProperties.m */,
-				92CAF14C1D01ED160079AB24 /* FeedItem.h */,
-				92CAF14D1D01ED160079AB24 /* FeedItem.m */,
-				92CAF14E1D01ED160079AB24 /* Feed+CoreDataProperties.h */,
-				92CAF14F1D01ED160079AB24 /* Feed+CoreDataProperties.m */,
-				92CAF1501D01ED160079AB24 /* Feed.h */,
-				92CAF1511D01ED160079AB24 /* Feed.m */,
+				921C80731D0334580057BCBD /* Feed+CoreDataProperties.h */,
+				921C80741D0334580057BCBD /* Feed+CoreDataProperties.m */,
+				921C80751D0334580057BCBD /* Feed.h */,
+				921C80761D0334580057BCBD /* Feed.m */,
+				921C80771D0334580057BCBD /* FeedItem+CoreDataProperties.h */,
+				921C80781D0334580057BCBD /* FeedItem+CoreDataProperties.m */,
+				921C80791D0334580057BCBD /* FeedItem.h */,
+				921C807A1D0334580057BCBD /* FeedItem.m */,
+				921C807B1D0334580057BCBD /* FeedItemEnclosure+CoreDataProperties.h */,
+				921C807C1D0334580057BCBD /* FeedItemEnclosure+CoreDataProperties.m */,
+				921C807D1D0334580057BCBD /* FeedItemEnclosure.h */,
+				921C807E1D0334580057BCBD /* FeedItemEnclosure.m */,
 			);
 			path = CoreDataModel;
 			sourceTree = "<group>";
@@ -427,21 +450,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92CAF1571D01ED160079AB24 /* Feed.m in Sources */,
+				921C80881D03391F0057BCBD /* DemoAVItem.m in Sources */,
 				92DD07D61D0071F0009F5D5B /* DemoPlayerFactory.m in Sources */,
-				92CAF1521D01ED160079AB24 /* FeedItemEnclosure+CoreDataProperties.m in Sources */,
+				921C80801D0334580057BCBD /* Feed.m in Sources */,
 				92488F2C1CFF282800077C78 /* LocalCacheItemSource.m in Sources */,
 				92488F291CFF281200077C78 /* WebRequestItemSource.m in Sources */,
 				92CAF0D91D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld in Sources */,
 				92CAF09A1D01BEAC0079AB24 /* RSSOrAtomFeedParser.m in Sources */,
-				92CAF1541D01ED160079AB24 /* FeedItem+CoreDataProperties.m in Sources */,
+				921C80811D0334580057BCBD /* FeedItem+CoreDataProperties.m in Sources */,
+				921C808E1D0339410057BCBD /* DemoTTSItem.m in Sources */,
+				921C80841D0334580057BCBD /* FeedItemEnclosure.m in Sources */,
 				92488F331CFF2F5A00077C78 /* DemoItemFactory.m in Sources */,
 				924A4CF61CFE97F300EC9B12 /* ViewController.m in Sources */,
-				92CAF1531D01ED160079AB24 /* FeedItemEnclosure.m in Sources */,
+				921C80911D033D0F0057BCBD /* DemoItemBase.m in Sources */,
 				924A4CF31CFE97F300EC9B12 /* AppDelegate.m in Sources */,
 				924A4CF01CFE97F300EC9B12 /* main.m in Sources */,
-				92CAF1551D01ED160079AB24 /* FeedItem.m in Sources */,
-				92CAF1561D01ED160079AB24 /* Feed+CoreDataProperties.m in Sources */,
+				921C807F1D0334580057BCBD /* Feed+CoreDataProperties.m in Sources */,
+				921C80821D0334580057BCBD /* FeedItem.m in Sources */,
+				921C80831D0334580057BCBD /* FeedItemEnclosure+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
