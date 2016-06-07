@@ -35,6 +35,7 @@
         if(items!=nil && items.count) {
             self.currentItem = items[0];
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
+            self.currentItem.player.delegate = self.delegate;
             [self play];
         }
     }];
@@ -44,6 +45,7 @@
         if(items!=nil && items.count) {
             self.currentItem = items[0];
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
+            self.currentItem.player.delegate = self.delegate;
             [self play];
         }
     }];

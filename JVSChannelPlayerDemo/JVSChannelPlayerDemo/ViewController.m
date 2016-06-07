@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "Items/DemoItemBase.h"
 
 @interface ViewController ()
 
@@ -49,17 +50,24 @@
     }
 }
 
--(void)player:(id<JVSPlayer>)player didFinishItem:(id<JVSPlayerItem>)item {
+-(void)player:(id<JVSPlayer>)player didFinishItem:(DemoItemBase*)item {
     NSLog(@"Did finish item");
 }
--(void)player:(id<JVSPlayer>)player didBeginItem:(id<JVSPlayerItem>)item {
+-(void)player:(id<JVSPlayer>)player didBeginItem:(DemoItemBase*)item {
     NSLog(@"Did begin item");
+    self.currentItemName.text = item.title;
 }
--(void)player:(id<JVSPlayer>)player didPauseItem:(id<JVSPlayerItem>)item {
+-(void)player:(id<JVSPlayer>)player didPauseItem:(DemoItemBase*)item {
     NSLog(@"Did pause item");
 }
--(void)player:(id<JVSPlayer>)player didResumeItem:(id<JVSPlayerItem>)item {
+-(void)player:(id<JVSPlayer>)player didResumeItem:(DemoItemBase*)item {
     NSLog(@"Did resume item");
+}
+
+-(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time {
+    double dTime = ((double)time.value/(double)time.timescale);
+    int minutes = (int)(dTime/60.0);
+    self.currentProgress.text = [NSString stringWithFormat:@"%d:%f",minutes,dTime-minutes];
 }
 
 @end

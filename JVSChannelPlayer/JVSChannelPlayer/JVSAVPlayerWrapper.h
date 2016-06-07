@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "JVSProtocols.h"
 
-@protocol JVSAVPlayerItem<JVSPlayerItem>
+@protocol JVSAVPlayerItem<JVSPlayerItem,AVAudioPlayerDelegate>
 @property (nonatomic,strong) NSString* title;
 @property (nonatomic,strong) NSString* mediaUrl;
 @end
