@@ -9,22 +9,51 @@
 #import <JVSChannelPlayer/JVSChannelPlayer.h>
 #import "DemoItemFactory.h"
 
+#import "CoreDataModel/Feed.h"
+#import "CoreDataModel/FeedItem.h"
+#import "CoreDataModel/FeedItemEnclosure.h"
+
+#import "Items/DemoAVItem.h"
+#import "Items/DemoTTSItem.h"
+
 @implementation DemoItemFactory
 
-/**
- * Implement this one when pulling directly from the web,
- * prolly a json source.
- */
--(id<JVSPlayerItem>)playerItemWithDict:(NSDictionary*)dict {
-    return nil;
-}
+/*
+@property (nonatomic,readonly,strong) NSNumber *id;
+@property (nonatomic,readonly,strong) NSString *author;
+@property (nonatomic,readonly,strong) NSString *title;
+@property (nonatomic,readonly,strong) NSString *articleUrl;
+
+@property (nonatomic,readonly,strong) NSString *text;
+
+@property (nonatomic,readonly,strong) NSString *mediaUrl;
+@property (nonatomic,readonly) bool isVideo;
+*/
 
 /**
  * Implement this one to pull from CoreData,
  * when wrapping a player item source that pulls from the web.
  */
--(id<JVSPlayerItem>)playerItemWithItem:(id<JVSPlayerItem>)item {
-    return nil;
+-(id<JVSPlayerItem>)playerItemWithObject:(FeedItem*)item {
+    id<JVSPlayerItem> ret;
+    if(item.enclosures.count>0) {
+        DemoAVItem *avItem = [[DemoAVItem alloc] init];
+        avItem.id = item.id;
+        avItem.title = item.title;
+        avItem.articleUrl = item.link;
+        avItem.author = item.author;
+        avItem.mediaUrl = item.enclosures[0].url;
+        ret = avItem;
+    } else {
+        DemoTTSItem *ttsItem = [[DemoTTSItem alloc] init];
+        ttsItem.id = item.id;
+        ttsItem.title = item.title;
+        ttsItem.articleUrl = item.link;
+        ttsItem.author = item.author;
+        ttsItem.text = item.summary;
+        ret = ttsItem;
+    }
+    return ret;
 }
 
 @end

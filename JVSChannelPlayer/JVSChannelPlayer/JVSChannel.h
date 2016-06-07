@@ -7,18 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JVSChannelPlayer.h"
+#import "JVSChannelManager.h"
 
-@interface JVSChannel : NSObject <JVSPlayerDelegate>
+@interface JVSChannel : NSObject <JVSPlayer>
 
-@property (retain,nonatomic) id<JVSPlayerItemSource> playerItemSource;
 @property (retain,nonatomic) id<JVSPlayerFactory> playerFactory;
-@property (retain,nonatomic) id<JVSPlayerDelegate> playerDelegate;
-
--(id<JVSPlayerItem>)nextItem;
--(id<JVSPlayerItem>)prevItem;
+@property (retain,nonatomic) id<JVSPlayerItemSource> itemSource;
+@property (retain,nonatomic) id<JVSPlayerDelegate> delegate;
 
 +(JVSChannel*)channelWithItemSource:(id<JVSPlayerItemSource>)source;
 -(void)makeReady;
+
+-(void)next;
+-(void)previous;
+-(void)play;
+-(void)stop;
+-(void)pause;
+-(void)resume;
 
 @end

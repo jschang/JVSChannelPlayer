@@ -8,49 +8,65 @@
 
 #import "JVSChannel.h"
 
+@interface JVSChannel()
+@property (nonatomic,retain) id<JVSPlayerItem> currentItem;
+@end
+
 @implementation JVSChannel
 
-@synthesize playerItemSource;
 @synthesize playerFactory;
-@synthesize playerDelegate;
+@synthesize itemSource;
+@synthesize delegate;
+@synthesize currentItem;
 
 +(JVSChannel*)channelWithItemSource:(id<JVSPlayerItemSource>)source {
     JVSChannel * channel = [[JVSChannel alloc] init];
-    channel.playerItemSource = source;
+    channel.itemSource = source;
+    channel.currentItem = nil;
     return channel;
 }
 
 -(void)makeReady {
-    [self.playerItemSource makeItemSourceReadyAndThen:^{
+    [self.itemSource makeItemSourceReadyAndThen:^{}];
+}
+
+-(void)next {
+    [self.itemSource fetchItemsAfter:self.currentItem withCount:1 andThen:^(NSArray *items) {
+        if(items!=nil && items.count) {
+            self.currentItem = items[0];
+            self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
+            [self play];
+        }
     }];
 }
-
--(id<JVSPlayerItem>)nextItem {
-    return nil;
+-(void)previous {
+    [self.itemSource fetchItemsBefore:self.currentItem withCount:1 andThen:^(NSArray *items) {
+        if(items!=nil && items.count) {
+            self.currentItem = items[0];
+            self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
+            [self play];
+        }
+    }];
 }
--(id<JVSPlayerItem>)prevItem {
-    return nil;
-}
-
--(void)player:(id<JVSPlayer>)player didFinishItem:(id<JVSPlayerItem>)item {
-    if( playerItemSource!=nil 
-        && [playerItemSource respondsToSelector:@selector(fetchItemsAfter:withCount:andThen:)]) {
-        [playerItemSource fetchItemsAfter:item withCount:1 andThen:^(NSArray *items) {
-            if([items count]>0) {
-                id<JVSPlayer> playerForNextItem = [playerFactory playerForItem:items[0]];
-                [playerForNextItem setDelegate:self];
-                [player setDelegate:nil];
-                /* policy is to advance to the next item && */
-                [playerForNextItem play:items[0]];
-            }
-        }];
+-(void)play {
+    if(self.currentItem!=nil) {
+        [self.currentItem.player play:self.currentItem];
     }
 }
--(void)player:(id<JVSPlayer>)player didBeginItem:(id<JVSPlayerItem>)item {
+-(void)stop {
+    if(self.currentItem!=nil) {
+        [self.currentItem.player stop];
+    }
 }
--(void)player:(id<JVSPlayer>)player didPauseItem:(id<JVSPlayerItem>)item {
+-(void)pause {
+    if(self.currentItem!=nil) {
+        [self.currentItem.player pause];
+    }
 }
--(void)player:(id<JVSPlayer>)player didResumeItem:(id<JVSPlayerItem>)item {
+-(void)resume {
+    if(self.currentItem!=nil) {
+        [self.currentItem.player resume];
+    }
 }
 
 @end

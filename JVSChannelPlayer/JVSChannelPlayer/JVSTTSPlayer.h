@@ -1,8 +1,8 @@
 //
-//  JVSAVPlayerWrapper.h
+//  JVSTTSPlayer.h
 //  JVSChannelPlayer
 //
-//  Created by Jonathan Schang on 6/2/16.
+//  Created by Jonathan Schang on 6/7/16.
 //  Copyright © 2016 Jon Schang. All rights reserved.
 //
 
@@ -10,11 +10,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import "JVSProtocols.h"
 
-@protocol JVSAVPlayerItem<JVSPlayerItem>
+@protocol JVSTTSPlayerItem<JVSPlayerItem>
 @property (nonatomic,strong) NSString* title;
-@property (nonatomic,strong) NSString* mediaUrl;
+@property (nonatomic,strong) NSString* text;
 @end
 
-@interface JVSAVPlayerWrapper : NSObject<JVSPlayer>
+@interface JVSTTSPlayer : NSObject<JVSPlayer>
 
 @end

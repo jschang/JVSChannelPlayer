@@ -19,6 +19,7 @@
 @protocol JVSPlayerItemFactory;
 
 @protocol JVSPlayerItem <NSObject>
+@property (nonatomic,strong) id<JVSPlayer> player;
 @end
 
 /**
@@ -27,10 +28,11 @@
  */
 @protocol JVSPlayer <NSObject>
 @required
+@property (nonatomic,strong) id<JVSPlayerDelegate> delegate;
 -(void)play:(id<JVSPlayerItem>)item;
+-(void)stop;
 -(void)pause;
 -(void)resume;
--(void)setDelegate:(id<JVSPlayerDelegate>)delegate;
 @end
 
 @protocol JVSPlayerDelegate <NSObject>
@@ -76,17 +78,10 @@
  * Implement a version of this that can create a player items
  */
 @protocol JVSPlayerItemFactory <NSObject>
-@required
-/**
- * Implement this one when pulling directly from the web,
- * prolly a json source.
- */
+@optional
 -(id<JVSPlayerItem>)playerItemWithDict:(NSDictionary*)dict;
-/**
- * Implement this one to pull from CoreData,
- * when wrapping a player item source that pulls from the web.
- */
 -(id<JVSPlayerItem>)playerItemWithItem:(id<JVSPlayerItem>)item;
+-(id<JVSPlayerItem>)playerItemWithObject:(NSObject*)item;
 @end
 
 #endif /* JVSProtocols_h */

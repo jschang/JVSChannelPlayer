@@ -10,6 +10,7 @@
 
 @implementation DemoItemBase
 
+@synthesize player;
 @synthesize id;
 @synthesize author;
 @synthesize title;

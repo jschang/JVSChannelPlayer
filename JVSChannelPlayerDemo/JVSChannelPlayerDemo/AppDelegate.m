@@ -9,6 +9,7 @@
 #import <JVSChannelPlayer/JVSChannelPlayer.h>
 #import "AppDelegate.h"
 #import "DemoItemFactory.h"
+#import "DemoPlayerFactory.h"
 #import "ItemSources/WebRequestItemSource.h"
 #import "ItemSources/LocalCacheItemSource.h"
 #import "ItemSources/RSSOrAtomFeedParser.h"
@@ -20,19 +21,22 @@
 
 @implementation AppDelegate 
 
-@synthesize itemFactory;
+@synthesize itemFactory, channelPlayer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.channelPlayer = [[JVSChannelPlayer alloc] init];
+    self.channelPlayer = [[JVSChannelManager alloc] init];
     self.itemFactory = [[DemoItemFactory alloc] init];
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"JVSChannelPlayerDemo"];
     
     [self addChannel:1 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
-    [self addChannel:2 withFetchCount:2 andUrl:@"https://feeds.feedburner.com/economst/audiovideo/moneytalks?format=xml"];
+    [self addChannel:4 withFetchCount:2 andUrl:@"http://feeds.gawker.com/gizmodo/full"];
+    [self addChannel:5 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/TechCrunch/"];
+    [self addChannel:6 withFetchCount:2 andUrl:@"http://www.cnet.com/rss/news/"];
     [self addChannel:3 withFetchCount:2 andUrl:@"http://www.quickanddirtytips.com/xml/getitdone.xml"];
+    [self addChannel:2 withFetchCount:2 andUrl:@"https://feeds.feedburner.com/economst/audiovideo/moneytalks?format=xml"];
     
     [self.channelPlayer makeReady];
      
@@ -70,7 +74,8 @@
             andFactory:self.itemFactory];
     localSource.upstreamSource = webSource;
     JVSChannel* channel = [[JVSChannel alloc] init];
-    channel.playerItemSource = localSource;
+    channel.playerFactory = [[DemoPlayerFactory alloc] init];
+    channel.itemSource = localSource;
     [self.channelPlayer addChannel:channel];
     return channel;
 }

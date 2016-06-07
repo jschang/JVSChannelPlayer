@@ -11,7 +11,6 @@
 @interface JVSAVPlayerWrapper()
 
 @property (strong,nonatomic) AVPlayer *avPlayer;
-@property (strong,nonatomic) id<JVSPlayerDelegate> delegate;
 
 @end
 
@@ -26,8 +25,10 @@
     return self;
 }
 
--(void)play:(id<JVSPlayerItem>)item {
-    [avPlayer replaceCurrentItemWithPlayerItem:(AVPlayerItem*)item];
+-(void)play:(id<JVSAVPlayerItem>)item {
+    NSLog(@"JVSAVPlayerWrapper - mediaUrl:%@",item.mediaUrl);
+    AVPlayerItem *avItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:item.mediaUrl]];
+    [avPlayer replaceCurrentItemWithPlayerItem:avItem];
     [avPlayer play];
 }
 -(void)pause {

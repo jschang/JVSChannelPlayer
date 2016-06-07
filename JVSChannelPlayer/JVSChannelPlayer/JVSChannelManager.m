@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JVSChannelPlayer.h"
+#import "JVSChannelManager.h"
 
-@implementation JVSChannelPlayer
+@implementation JVSChannelManager
 
 @synthesize channels;
-@synthesize playerFactory;
 @synthesize currentChannel;
 
 -(id)init {
@@ -33,9 +32,13 @@
 -(void)addChannel:(JVSChannel*)channel {
     [self removeChannel:channel];
     [channels addObject:channel];
+    currentChannel = channel;
 }
 -(void)removeChannel:(JVSChannel*)channel {
     [channels removeObject:channel];
+    if(self.currentChannel == channel && self.channels.count>0) {
+        currentChannel = self.channels[0];
+    }
 }
 -(JVSChannel*)nextChannel {
     int idx = [self.channels indexOfObject:self.currentChannel];

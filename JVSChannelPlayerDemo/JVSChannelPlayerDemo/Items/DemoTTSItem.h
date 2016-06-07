@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "DemoItemBase.h"
 
-@interface DemoTTSItem : NSObject
+@interface DemoTTSItem : DemoItemBase<JVSTTSPlayerItem>
 
-@property (nonatomic,readonly,strong) NSString *text;
+@property (nonatomic,strong) JVSAVPlayerWrapper* player;
+@property (nonatomic,strong) NSString *text;
 
 @end

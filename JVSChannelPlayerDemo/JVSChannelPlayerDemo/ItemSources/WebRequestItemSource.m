@@ -115,6 +115,7 @@ NSObject *idLock;
                     enc.url = [enclosure valueForKey:@"url"];
                     enc.type = [enclosure valueForKey:@"type"];
                     enc.length = [enclosure valueForKey:@"length"];
+                    enc.item = feedItem;
                     [enccopy addObject:enc];
                 }
                 [feedItem.managedObjectContext MR_saveToPersistentStoreAndWait];
@@ -154,10 +155,8 @@ NSObject *idLock;
     NSPredicate *predicate
         = [NSPredicate predicateWithFormat:@"id = %@", itemId];
     FeedItem *item = [FeedItem MR_findFirstWithPredicate:predicate];
-    NSArray *keys = [[[item entity] attributesByName] allKeys];
-    NSDictionary *dict = [item dictionaryWithValuesForKeys:keys];
     if(andThen!=nil) {
-        andThen([itemFactory playerItemWithDict:dict]);
+        andThen([itemFactory playerItemWithObject:item]);
     }
 }
 -(void)fetchItemsAfter:(DemoItemBase*)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
@@ -172,8 +171,18 @@ NSObject *idLock;
 }
 
 -(NSArray*) fetchItemsFrom:(DemoItemBase*)item withCount:(int)count forwards:(bool)forwards {
-    NSString * pred = forwards ? @"id > %@ && feed.id = %@" : @"id < %@ && feed.id = %@";
-    NSPredicate *filter = [NSPredicate predicateWithFormat:pred, item.id, self.channelId];
+
+    NSString *pred = forwards ? @"id > %@ && feed.id = %i" 
+                              : @"id < %@ && feed.id = %i";
+
+    NSPredicate *filter = [NSPredicate predicateWithFormat:pred
+                                , ( 
+                                    item != nil 
+                                    ? item.id 
+                                    : [NSNumber numberWithInt:0]
+                                )
+                                , self.channelId
+                                , nil];
     
     NSFetchRequest *request = [FeedItem MR_requestAllWithPredicate:filter];
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"id"
@@ -186,9 +195,7 @@ NSObject *idLock;
     NSArray *items = [FeedItem MR_executeFetchRequest:request];
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     for(FeedItem *item in items) {
-        NSArray *keys = [[[item entity] attributesByName] allKeys];
-        NSDictionary *dict = [item dictionaryWithValuesForKeys:keys];
-        [ret addObject:[itemFactory playerItemWithDict:dict]];
+        [ret addObject:[itemFactory playerItemWithObject:item]];
     }
     if(!forwards) {
         [self reverse:ret];

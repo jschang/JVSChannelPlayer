@@ -12,7 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) JVSChannelPlayer *channelPlayer;
+@property (strong, nonatomic) JVSChannelManager *channelPlayer;
 
 @end
 

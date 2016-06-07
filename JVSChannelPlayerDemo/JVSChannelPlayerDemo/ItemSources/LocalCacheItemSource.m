@@ -25,7 +25,7 @@
     [upstreamSource fetchItem:itemId andThen:andThen];
 }
 -(void)fetchItemsAfter:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
-    [upstreamSource fetchItemsBefore:item withCount:count andThen:andThen];
+    [upstreamSource fetchItemsAfter:item withCount:count andThen:andThen];
 }
 -(void)fetchItemsBefore:(id<JVSPlayerItem>)item withCount:(NSInteger)count andThen:(void(^)(NSArray*))andThen {
     [upstreamSource fetchItemsBefore:item withCount:count andThen:andThen];

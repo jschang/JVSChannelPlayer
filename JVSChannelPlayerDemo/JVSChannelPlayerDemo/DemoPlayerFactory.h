@@ -10,5 +10,4 @@
 #import <JVSChannelPlayer/JVSChannelPlayer.h>
 
 @interface DemoPlayerFactory : NSObject<JVSPlayerFactory>
-
 @end

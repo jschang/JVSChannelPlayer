@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92488F231CFF20E100077C78 /* JVSChannelPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F221CFF20E100077C78 /* JVSChannelPlayer.m */; };
+		92488F231CFF20E100077C78 /* JVSChannelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92488F221CFF20E100077C78 /* JVSChannelManager.m */; };
 		92488F251CFF216800077C78 /* JVSProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 92488F241CFF215000077C78 /* JVSProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		924A4CCC1CFE97AE00EC9B12 /* JVSChannelPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 924A4CCB1CFE97AE00EC9B12 /* JVSChannelPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		924A4CCC1CFE97AE00EC9B12 /* JVSChannelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 924A4CCB1CFE97AE00EC9B12 /* JVSChannelManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		924A4CD31CFE97AE00EC9B12 /* JVSChannelPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A4CC81CFE97AD00EC9B12 /* JVSChannelPlayer.framework */; };
 		924A4CD81CFE97AE00EC9B12 /* JVSChannelPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4CD71CFE97AE00EC9B12 /* JVSChannelPlayerTests.m */; };
 		924A4D321CFE9FDE00EC9B12 /* JVSChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 924A4D301CFE9FDE00EC9B12 /* JVSChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		924A4D331CFE9FDE00EC9B12 /* JVSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4D311CFE9FDE00EC9B12 /* JVSChannel.m */; };
 		9285B5501D0083FB00997AB9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9285B54F1D0083FB00997AB9 /* CoreMedia.framework */; };
+		92AC5C7B1D070793001561BD /* JVSTTSPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 92AC5C791D070793001561BD /* JVSTTSPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92AC5C7C1D070793001561BD /* JVSTTSPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AC5C7A1D070793001561BD /* JVSTTSPlayer.m */; };
+		92AC5C7E1D07114A001561BD /* JVSChannelPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 92AC5C7D1D071123001561BD /* JVSChannelPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92DD07D91D0072A4009F5D5B /* JVSAVPlayerWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 92DD07D71D0072A4009F5D5B /* JVSAVPlayerWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92DD07DA1D0072A4009F5D5B /* JVSAVPlayerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DD07D81D0072A4009F5D5B /* JVSAVPlayerWrapper.m */; };
 		92DD07DC1D0072CE009F5D5B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DD07DB1D0072CE009F5D5B /* AVFoundation.framework */; };
@@ -31,10 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		92488F221CFF20E100077C78 /* JVSChannelPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSChannelPlayer.m; sourceTree = "<group>"; };
+		92488F221CFF20E100077C78 /* JVSChannelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSChannelManager.m; sourceTree = "<group>"; };
 		92488F241CFF215000077C78 /* JVSProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVSProtocols.h; sourceTree = "<group>"; };
 		924A4CC81CFE97AD00EC9B12 /* JVSChannelPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JVSChannelPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		924A4CCB1CFE97AE00EC9B12 /* JVSChannelPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVSChannelPlayer.h; sourceTree = "<group>"; };
+		924A4CCB1CFE97AE00EC9B12 /* JVSChannelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVSChannelManager.h; sourceTree = "<group>"; };
 		924A4CCD1CFE97AE00EC9B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924A4CD21CFE97AE00EC9B12 /* JVSChannelPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JVSChannelPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		924A4CD71CFE97AE00EC9B12 /* JVSChannelPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVSChannelPlayerTests.m; sourceTree = "<group>"; };
@@ -42,6 +45,9 @@
 		924A4D301CFE9FDE00EC9B12 /* JVSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVSChannel.h; sourceTree = "<group>"; };
 		924A4D311CFE9FDE00EC9B12 /* JVSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSChannel.m; sourceTree = "<group>"; };
 		9285B54F1D0083FB00997AB9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		92AC5C791D070793001561BD /* JVSTTSPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVSTTSPlayer.h; sourceTree = "<group>"; };
+		92AC5C7A1D070793001561BD /* JVSTTSPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSTTSPlayer.m; sourceTree = "<group>"; };
+		92AC5C7D1D071123001561BD /* JVSChannelPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVSChannelPlayer.h; sourceTree = "<group>"; };
 		92DD07D71D0072A4009F5D5B /* JVSAVPlayerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVSAVPlayerWrapper.h; sourceTree = "<group>"; };
 		92DD07D81D0072A4009F5D5B /* JVSAVPlayerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSAVPlayerWrapper.m; sourceTree = "<group>"; };
 		92DD07DB1D0072CE009F5D5B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -91,12 +97,15 @@
 		924A4CCA1CFE97AE00EC9B12 /* JVSChannelPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				92AC5C7D1D071123001561BD /* JVSChannelPlayer.h */,
 				92DD07D71D0072A4009F5D5B /* JVSAVPlayerWrapper.h */,
 				92DD07D81D0072A4009F5D5B /* JVSAVPlayerWrapper.m */,
+				92AC5C791D070793001561BD /* JVSTTSPlayer.h */,
+				92AC5C7A1D070793001561BD /* JVSTTSPlayer.m */,
 				924A4D301CFE9FDE00EC9B12 /* JVSChannel.h */,
 				924A4D311CFE9FDE00EC9B12 /* JVSChannel.m */,
-				924A4CCB1CFE97AE00EC9B12 /* JVSChannelPlayer.h */,
-				92488F221CFF20E100077C78 /* JVSChannelPlayer.m */,
+				924A4CCB1CFE97AE00EC9B12 /* JVSChannelManager.h */,
+				92488F221CFF20E100077C78 /* JVSChannelManager.m */,
 				92488F241CFF215000077C78 /* JVSProtocols.h */,
 				924A4CCD1CFE97AE00EC9B12 /* Info.plist */,
 			);
@@ -121,8 +130,10 @@
 			files = (
 				924A4D321CFE9FDE00EC9B12 /* JVSChannel.h in Headers */,
 				92DD07D91D0072A4009F5D5B /* JVSAVPlayerWrapper.h in Headers */,
-				924A4CCC1CFE97AE00EC9B12 /* JVSChannelPlayer.h in Headers */,
+				92AC5C7B1D070793001561BD /* JVSTTSPlayer.h in Headers */,
+				924A4CCC1CFE97AE00EC9B12 /* JVSChannelManager.h in Headers */,
 				92488F251CFF216800077C78 /* JVSProtocols.h in Headers */,
+				92AC5C7E1D07114A001561BD /* JVSChannelPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +233,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92488F231CFF20E100077C78 /* JVSChannelPlayer.m in Sources */,
+				92AC5C7C1D070793001561BD /* JVSTTSPlayer.m in Sources */,
+				92488F231CFF20E100077C78 /* JVSChannelManager.m in Sources */,
 				924A4D331CFE9FDE00EC9B12 /* JVSChannel.m in Sources */,
 				92DD07DA1D0072A4009F5D5B /* JVSAVPlayerWrapper.m in Sources */,
 			);

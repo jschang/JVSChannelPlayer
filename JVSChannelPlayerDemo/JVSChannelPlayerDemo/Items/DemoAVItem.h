@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "DemoItemBase.h"
 
-@interface DemoAVItem : DemoItemBase
+@interface DemoAVItem : DemoItemBase<JVSAVPlayerItem>
 
-@property (nonatomic,readonly,strong) NSString *mediaUrl;
-@property (nonatomic,readonly) bool isVideo;
+@property (nonatomic,strong) NSString *mediaUrl;
+@property (nonatomic) bool isVideo;
 
 @end

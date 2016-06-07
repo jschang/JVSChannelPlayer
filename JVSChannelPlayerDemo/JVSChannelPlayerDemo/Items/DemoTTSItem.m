@@ -10,6 +10,7 @@
 
 @implementation DemoTTSItem
 
+@dynamic player;
 @synthesize text;
 
 @end
