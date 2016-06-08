@@ -43,10 +43,14 @@
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
             self.currentItem.player.delegate = self.delegate;
             if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
-                [self.delegate channel:self hasReadyItem:items[0]];
+                dispatch_async(dispatch_get_main_queue(),^(){
+                    [self.delegate channel:self hasReadyItem:items[0]];
+                });
             } 
         } else if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
-            [self.delegate channel:self hasReadyItem:nil];
+            dispatch_async(dispatch_get_main_queue(),^(){
+                [self.delegate channel:self hasReadyItem:nil];
+            });
         }
     }];
 }
@@ -57,10 +61,14 @@
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
             self.currentItem.player.delegate = self.delegate;
             if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
-                [self.delegate channel:self hasReadyItem:items[0]];
+                dispatch_async(dispatch_get_main_queue(),^(){
+                    [self.delegate channel:self hasReadyItem:items[0]];
+                });
             }
         } else if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
-            [self.delegate channel:self hasReadyItem:nil];
+            dispatch_async(dispatch_get_main_queue(),^(){
+                [self.delegate channel:self hasReadyItem:nil];
+            });
         }
     }];
 }

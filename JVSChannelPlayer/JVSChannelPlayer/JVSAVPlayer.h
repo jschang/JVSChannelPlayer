@@ -16,5 +16,4 @@
 @end
 
 @interface JVSAVPlayer : NSObject<JVSPlayer,AVAudioPlayerDelegate>
-
 @end

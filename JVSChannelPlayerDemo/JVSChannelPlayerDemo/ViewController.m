@@ -24,7 +24,7 @@
     }
     _appDelegate.channelPlayer.delegate = self;
     self.currentItemName.text = @"Tap Play or Next";
-    self.currentProgress.text = [NSString stringWithFormat:@"0:0"];
+    [self setMinutes:0 andSeconds:0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -36,12 +36,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) setMinutes:(int)minutes andSeconds:(int)seconds {
+    self.currentProgress.text = [NSString stringWithFormat:@"%.2d:%.2d",minutes,seconds];
+}
+
 - (IBAction)previousChannelTapped:(id)sender {
+    [_appDelegate.channelPlayer stop];
     [_appDelegate.channelPlayer previousChannel];
+    self.currentItemName.text = @"Loading...";
+    [self setMinutes:0 andSeconds:0];
 }
 
 - (IBAction)nextChannelTapped:(id)sender {
+    [_appDelegate.channelPlayer stop];
     [_appDelegate.channelPlayer nextChannel];
+    self.currentItemName.text = @"Loading...";
+    [self setMinutes:0 andSeconds:0];
 }
 
 - (IBAction)playTapped:(id)sender {
@@ -60,15 +70,21 @@
 
 - (IBAction)stopTapped:(id)sender {
     [_appDelegate.channelPlayer stop];
-    self.currentProgress.text = [NSString stringWithFormat:@"0:0"];
+    [self setMinutes:0 andSeconds:0];
 }
 
 - (IBAction)prevTapped:(id)sender {
+    [_appDelegate.channelPlayer stop];
     [_appDelegate.channelPlayer previous];
+    self.currentItemName.text = @"Loading...";
+    [self setMinutes:0 andSeconds:0];
 }
 
 - (IBAction)nextTapped:(id)sender {
+    [_appDelegate.channelPlayer stop];
     [_appDelegate.channelPlayer next];
+    self.currentItemName.text = @"Loading...";
+    [self setMinutes:0 andSeconds:0];
 }
 
 -(void)channelManager:(JVSChannelManager*)manager didChangeTo:(DemoChannel*)newChannel from:(DemoChannel*)prevChannel {
@@ -83,7 +99,7 @@
 -(void)channel:(DemoChannel*)channel hasReadyItem:(DemoItemBase*)item {
     NSLog(@"Channel has new item");
     self.currentChannelName.text = channel.title;
-    [channel play];
+    [_appDelegate.channelPlayer play];
 }
 
 -(void)player:(id<JVSPlayer>)player didFinishItem:(DemoItemBase*)item {
@@ -104,7 +120,7 @@
     double dTime = ((double)time.value/(double)time.timescale);
     int minutes = (int)(dTime / 60.0);
     int seconds = ((int)dTime) % 60;
-    self.currentProgress.text = [NSString stringWithFormat:@"%d:%d",minutes,seconds];
+    [self setMinutes:minutes andSeconds:seconds];
 }
 
 @end

@@ -23,31 +23,39 @@
 -(id)init {
     self = [super init];
     if(!self) return self;
-    self.synth = [[AVSpeechSynthesizer alloc] init];
-    self.voices = [AVSpeechSynthesisVoice speechVoices];
-    self.voice = self.voices[0];
+    //self.synth = [[AVSpeechSynthesizer alloc] init];
+    //self.voices = [AVSpeechSynthesisVoice speechVoices];
+    //self.voice = self.voices[0];
     self.currentItem = nil;
     isPaused = false;
     return self;
 }
 -(void)play:(id<JVSTTSPlayerItem>)item {
     if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
-        [self.delegate player:self didBeginItem:item];
+        dispatch_async(dispatch_get_main_queue(),^(){
+            [self.delegate player:self didBeginItem:item];
+        });
     }
 }
 -(void)pause {
     if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
-        [self.delegate player:self didPauseItem:self.currentItem];
+        dispatch_async(dispatch_get_main_queue(),^(){
+            [self.delegate player:self didPauseItem:self.currentItem];
+        });
     }
 }
 -(void)resume {
     if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
-        [self.delegate player:self didResumeItem:self.currentItem];
+        dispatch_async(dispatch_get_main_queue(),^(){
+            [self.delegate player:self didResumeItem:self.currentItem];
+        });
     }
 }
 -(void)stop {
     if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
-        [self.delegate player:self didResumeItem:self.currentItem];
+        dispatch_async(dispatch_get_main_queue(),^(){
+            [self.delegate player:self didResumeItem:self.currentItem];
+        });
     }
 }
 

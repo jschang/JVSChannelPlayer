@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "JVSChannelManager.h"
 
+@interface JVSChannelManager() 
+@property (nonatomic,retain) dispatch_queue_t dispatchQueue;
+@end
+
 @implementation JVSChannelManager
 
+@synthesize dispatchQueue;
 @synthesize channels;
 @synthesize currentChannel;
 @synthesize delegate;
@@ -20,14 +25,17 @@
     if(!self) {
         return self;
     }
+    dispatchQueue = dispatch_queue_create("JVSChannelManager", DISPATCH_QUEUE_CONCURRENT);
     channels = [[NSMutableArray alloc] init];
     return self;
 }
 
 -(void)makeReady {
-    for(JVSChannel *channel in self.channels) {
-        [channel makeReady];
-    }
+    dispatch_async(dispatchQueue,^(){
+        for(JVSChannel *channel in self.channels) {
+            [channel makeReady];
+        }
+    });
 }
 
 -(void)addChannel:(JVSChannel*)channel {
@@ -62,6 +70,8 @@
     JVSChannel *previousChannel = self.currentChannel;
     if(idx!=NSNotFound && (idx-1)>=0) {
         currentChannel = self.channels[idx-1];
+    } else if(channels.count>0) {
+        currentChannel = channels[channels.count-1];
     } else {
         currentChannel = nil;
     }
