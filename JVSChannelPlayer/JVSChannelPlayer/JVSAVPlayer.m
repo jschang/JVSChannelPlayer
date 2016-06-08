@@ -44,6 +44,7 @@
                     });
                 }
             }];
+        [avPlayer setRate:1.0f];
         [avPlayer play];
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
@@ -55,6 +56,7 @@
 -(void)pause {
     if(avPlayer.rate>0.0f) {
         isPaused = true;
+        [avPlayer setRate:0.0f];
         [avPlayer pause];
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
@@ -65,6 +67,7 @@
 }
 -(void)resume {
     if(self.isPaused) {
+        [avPlayer setRate:1.0f];
         [avPlayer play];
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
@@ -75,6 +78,8 @@
 }
 -(void)stop {
     if(avPlayer.rate>0.0f) {
+        [avPlayer cancelPendingPrerolls];
+        [avPlayer setRate:0.0f];
         [avPlayer pause];
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
