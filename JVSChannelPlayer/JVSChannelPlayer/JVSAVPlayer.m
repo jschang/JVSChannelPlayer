@@ -6,29 +6,28 @@
 //  Copyright © 2016 Jon Schang. All rights reserved.
 //
 
-#import "JVSAVPlayerWrapper.h"
+#import "JVSAVPlayer.h"
 
-@interface JVSAVPlayerWrapper()
-
+@interface JVSAVPlayer()
 @property (strong,nonatomic) AVPlayer *avPlayer;
-@property (strong,nonatomic) id<JVSPlayerItem> currentItem;
-
+@property (strong,nonatomic) id<JVSAVPlayerItem> currentItem;
 @end
 
-@implementation JVSAVPlayerWrapper
+@implementation JVSAVPlayer
 
-@synthesize avPlayer, delegate;
+@synthesize avPlayer, delegate, isPaused;
 
 -(id)init {
     self = [super init];
     if(!self) return self;
     self.avPlayer = [[AVPlayer alloc] init];
     self.currentItem = nil;
+    isPaused = false;
     return self;
 }
 
 -(void)play:(id<JVSAVPlayerItem>)item {
-    NSLog(@"JVSAVPlayerWrapper - mediaUrl:%@",item.mediaUrl);
+    NSLog(@"JVSAVPlayer - mediaUrl:%@",item.mediaUrl);
     self.currentItem = item;
     AVPlayerItem *avItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:item.mediaUrl]];
     [avPlayer replaceCurrentItemWithPlayerItem:avItem];
@@ -45,21 +44,28 @@
     }
 }
 -(void)pause {
-    [avPlayer pause];
-    if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
-        [self.delegate player:self didPauseItem:self.currentItem];
+    if(avPlayer.rate>0.0f) {
+        isPaused = true;
+        [avPlayer pause];
+        if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
+            [self.delegate player:self didPauseItem:self.currentItem];
+        }
     }
 }
 -(void)resume {
-    [avPlayer play];
-    if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
-        [self.delegate player:self didResumeItem:self.currentItem];
+    if(self.isPaused) {
+        [avPlayer play];
+        if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
+            [self.delegate player:self didResumeItem:self.currentItem];
+        }
     }
 }
 -(void)stop {
-    [avPlayer pause];
-    if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
-        [self.delegate player:self didResumeItem:self.currentItem];
+    if(avPlayer.rate>0.0f) {
+        [avPlayer pause];
+        if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
+            [self.delegate player:self didResumeItem:self.currentItem];
+        }
     }
 }
 

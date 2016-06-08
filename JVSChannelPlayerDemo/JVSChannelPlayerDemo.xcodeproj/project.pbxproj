@@ -28,6 +28,7 @@
 		924A4D091CFE97F300EC9B12 /* JVSChannelPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4D081CFE97F300EC9B12 /* JVSChannelPlayerDemoTests.m */; };
 		924A4D141CFE97F300EC9B12 /* JVSChannelPlayerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A4D131CFE97F300EC9B12 /* JVSChannelPlayerDemoUITests.m */; };
 		924A4D2B1CFE984F00EC9B12 /* JVSChannelPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924A4D2A1CFE984F00EC9B12 /* JVSChannelPlayer.framework */; };
+		92AC5C8B1D085012001561BD /* DemoChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AC5C8A1D085012001561BD /* DemoChannel.m */; };
 		92CAF0971D01B7730079AB24 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 92CAF0961D01B7730079AB24 /* Podfile */; };
 		92CAF09A1D01BEAC0079AB24 /* RSSOrAtomFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF0991D01BEAC0079AB24 /* RSSOrAtomFeedParser.m */; };
 		92CAF0D91D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF0D11D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld */; };
@@ -97,6 +98,8 @@
 		924A4D131CFE97F300EC9B12 /* JVSChannelPlayerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVSChannelPlayerDemoUITests.m; sourceTree = "<group>"; };
 		924A4D151CFE97F300EC9B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924A4D2A1CFE984F00EC9B12 /* JVSChannelPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JVSChannelPlayer.framework; path = "../JVSChannelPlayer/build/Debug-iphoneos/JVSChannelPlayer.framework"; sourceTree = "<group>"; };
+		92AC5C891D085012001561BD /* DemoChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoChannel.h; sourceTree = "<group>"; };
+		92AC5C8A1D085012001561BD /* DemoChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoChannel.m; sourceTree = "<group>"; };
 		92CAF0961D01B7730079AB24 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		92CAF0981D01BEAC0079AB24 /* RSSOrAtomFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSOrAtomFeedParser.h; path = ItemSources/RSSOrAtomFeedParser.h; sourceTree = "<group>"; };
 		92CAF0991D01BEAC0079AB24 /* RSSOrAtomFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSOrAtomFeedParser.m; path = ItemSources/RSSOrAtomFeedParser.m; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				924A4CF21CFE97F300EC9B12 /* AppDelegate.m */,
 				924A4CF41CFE97F300EC9B12 /* ViewController.h */,
 				924A4CF51CFE97F300EC9B12 /* ViewController.m */,
+				92AC5C891D085012001561BD /* DemoChannel.h */,
+				92AC5C8A1D085012001561BD /* DemoChannel.m */,
 				92488F311CFF2F5A00077C78 /* DemoItemFactory.h */,
 				92488F321CFF2F5A00077C78 /* DemoItemFactory.m */,
 				92DD07D41D0071F0009F5D5B /* DemoPlayerFactory.h */,
@@ -455,6 +460,7 @@
 				921C80801D0334580057BCBD /* Feed.m in Sources */,
 				92488F2C1CFF282800077C78 /* LocalCacheItemSource.m in Sources */,
 				92488F291CFF281200077C78 /* WebRequestItemSource.m in Sources */,
+				92AC5C8B1D085012001561BD /* DemoChannel.m in Sources */,
 				92CAF0D91D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld in Sources */,
 				92CAF09A1D01BEAC0079AB24 /* RSSOrAtomFeedParser.m in Sources */,
 				921C80811D0334580057BCBD /* FeedItem+CoreDataProperties.m in Sources */,

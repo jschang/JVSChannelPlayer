@@ -8,10 +8,6 @@
 
 #import "JVSChannel.h"
 
-@interface JVSChannel()
-@property (nonatomic,retain) id<JVSPlayerItem> currentItem;
-@end
-
 @implementation JVSChannel
 
 @synthesize playerFactory;
@@ -22,51 +18,73 @@
 +(JVSChannel*)channelWithItemSource:(id<JVSPlayerItemSource>)source {
     JVSChannel * channel = [[JVSChannel alloc] init];
     channel.itemSource = source;
-    channel.currentItem = nil;
+    channel->currentItem = nil;
     return channel;
 }
 
 -(void)makeReady {
     [self.itemSource makeItemSourceReadyAndThen:^{}];
 }
+-(bool)isPaused {
+    if(currentItem
+        && currentItem.player
+        && currentItem.player.isPaused
+    ) { 
+        return YES; 
+    } else {
+        return NO;
+    }
+}
 
 -(void)next {
     [self.itemSource fetchItemsAfter:self.currentItem withCount:1 andThen:^(NSArray *items) {
         if(items!=nil && items.count) {
-            self.currentItem = items[0];
+            currentItem = items[0];
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
             self.currentItem.player.delegate = self.delegate;
-            [self play];
+            if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
+                [self.delegate channel:self hasReadyItem:items[0]];
+            } 
+        } else if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
+            [self.delegate channel:self hasReadyItem:nil];
         }
     }];
 }
 -(void)previous {
     [self.itemSource fetchItemsBefore:self.currentItem withCount:1 andThen:^(NSArray *items) {
         if(items!=nil && items.count) {
-            self.currentItem = items[0];
+            currentItem = items[0];
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
             self.currentItem.player.delegate = self.delegate;
-            [self play];
+            if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
+                [self.delegate channel:self hasReadyItem:items[0]];
+            }
+        } else if(self.delegate && [self.delegate respondsToSelector:@selector(channel:hasReadyItem:)]) {
+            [self.delegate channel:self hasReadyItem:nil];
         }
     }];
 }
 -(void)play {
     if(self.currentItem!=nil) {
+        self.currentItem.player.delegate = self.delegate;
         [self.currentItem.player play:self.currentItem];
     }
 }
 -(void)stop {
     if(self.currentItem!=nil) {
+        self.currentItem.player.delegate = self.delegate;
         [self.currentItem.player stop];
     }
 }
 -(void)pause {
     if(self.currentItem!=nil) {
+        self.currentItem.player.delegate = self.delegate;
         [self.currentItem.player pause];
     }
 }
 -(void)resume {
     if(self.currentItem!=nil) {
+        self.currentItem.player.delegate = self.delegate;
         [self.currentItem.player resume];
     }
 }

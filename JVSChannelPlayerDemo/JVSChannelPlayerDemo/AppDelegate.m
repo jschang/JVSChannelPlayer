@@ -8,8 +8,6 @@
 
 #import <JVSChannelPlayer/JVSChannelPlayer.h>
 #import "AppDelegate.h"
-#import "DemoItemFactory.h"
-#import "DemoPlayerFactory.h"
 #import "ItemSources/WebRequestItemSource.h"
 #import "ItemSources/LocalCacheItemSource.h"
 #import "ItemSources/RSSOrAtomFeedParser.h"
@@ -31,12 +29,12 @@
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"JVSChannelPlayerDemo"];
     
-    [self addChannel:1 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
-    [self addChannel:4 withFetchCount:2 andUrl:@"http://feeds.gawker.com/gizmodo/full"];
-    [self addChannel:5 withFetchCount:2 andUrl:@"http://feeds.feedburner.com/TechCrunch/"];
-    [self addChannel:6 withFetchCount:2 andUrl:@"http://www.cnet.com/rss/news/"];
-    [self addChannel:3 withFetchCount:2 andUrl:@"http://www.quickanddirtytips.com/xml/getitdone.xml"];
-    [self addChannel:2 withFetchCount:2 andUrl:@"https://feeds.feedburner.com/economst/audiovideo/moneytalks?format=xml"];
+    //[self addChannel:4 withFetchCount:2 andTitle:@"Gizmodo" andUrl:@"http://feeds.gawker.com/gizmodo/full"];
+    //[self addChannel:5 withFetchCount:2 andTitle:@"TechCrunch" andUrl:@"http://feeds.feedburner.com/TechCrunch/"];
+    //[self addChannel:6 withFetchCount:2 andTitle:@"C-Net" andUrl:@"http://www.cnet.com/rss/news/"];
+    [self addChannel:3 withFetchCount:2 andTitle:@"Get It Done" andUrl:@"http://www.quickanddirtytips.com/xml/getitdone.xml"];
+    [self addChannel:1 withFetchCount:2 andTitle:@"The Memory Palace" andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
+    [self addChannel:2 withFetchCount:2 andTitle:@"The Economist - Money Talks" andUrl:@"https://feeds.feedburner.com/economst/audiovideo/moneytalks?format=xml"];
     
     [self.channelPlayer makeReady];
      
@@ -65,7 +63,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(JVSChannel*)addChannel:(int)channelId withFetchCount:(int)itemCount andUrl:(NSString*)url {
+-(JVSChannel*)addChannel:(int)channelId withFetchCount:(int)itemCount andTitle:(NSString*)title andUrl:(NSString*)url {
     LocalCacheItemSource *localSource = [[LocalCacheItemSource alloc] init];
     WebRequestItemSource *webSource = [WebRequestItemSource 
             initWithItemCount:itemCount
@@ -73,7 +71,8 @@
             andUrl:url
             andFactory:self.itemFactory];
     localSource.upstreamSource = webSource;
-    JVSChannel* channel = [[JVSChannel alloc] init];
+    DemoChannel* channel = [[DemoChannel alloc] init];
+    channel.title = title;
     channel.playerFactory = [[DemoPlayerFactory alloc] init];
     channel.itemSource = localSource;
     [self.channelPlayer addChannel:channel];

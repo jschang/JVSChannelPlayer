@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <JVSChannelPlayer/JVSChannelPlayer.h>
+#import "DemoChannel.h"
+#import "DemoItemFactory.h"
+#import "DemoPlayerFactory.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

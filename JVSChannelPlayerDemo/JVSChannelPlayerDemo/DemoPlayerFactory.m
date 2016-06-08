@@ -10,14 +10,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import <JVSChannelPlayer/JVSChannelPlayer.h>
 
-JVSAVPlayerWrapper* jvsAVPlayer;
+JVSAVPlayer* jvsAVPlayer;
 JVSTTSPlayer* jvsTTSPlayer;
 
 @implementation DemoPlayerFactory
 
 +(void) initialize {
     jvsTTSPlayer = [[JVSTTSPlayer alloc] init];
-    jvsAVPlayer = [[JVSAVPlayerWrapper alloc] init];
+    jvsAVPlayer = [[JVSAVPlayer alloc] init];
 }
 
 -(id<JVSPlayer>)playerForItem:(id<JVSPlayerItem>)item {

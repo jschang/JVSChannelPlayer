@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <JVSChannelPlayer/JVSChannelPlayer.h>
 
-@interface ViewController : UIViewController<JVSPlayerDelegate>
+@interface ViewController : UIViewController<JVSChannelManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *currentChannelName;
 @property (weak, nonatomic) IBOutlet UILabel *currentItemName;

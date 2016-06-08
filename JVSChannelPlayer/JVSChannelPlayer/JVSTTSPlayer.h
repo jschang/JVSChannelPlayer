@@ -16,5 +16,4 @@
 @end
 
 @interface JVSTTSPlayer : NSObject<JVSPlayer>
-
 @end

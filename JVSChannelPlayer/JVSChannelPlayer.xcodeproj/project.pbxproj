@@ -18,8 +18,8 @@
 		92AC5C7B1D070793001561BD /* JVSTTSPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 92AC5C791D070793001561BD /* JVSTTSPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92AC5C7C1D070793001561BD /* JVSTTSPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AC5C7A1D070793001561BD /* JVSTTSPlayer.m */; };
 		92AC5C7E1D07114A001561BD /* JVSChannelPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 92AC5C7D1D071123001561BD /* JVSChannelPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92DD07D91D0072A4009F5D5B /* JVSAVPlayerWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 92DD07D71D0072A4009F5D5B /* JVSAVPlayerWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92DD07DA1D0072A4009F5D5B /* JVSAVPlayerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DD07D81D0072A4009F5D5B /* JVSAVPlayerWrapper.m */; };
+		92DD07D91D0072A4009F5D5B /* JVSAVPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 92DD07D71D0072A4009F5D5B /* JVSAVPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92DD07DA1D0072A4009F5D5B /* JVSAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DD07D81D0072A4009F5D5B /* JVSAVPlayer.m */; };
 		92DD07DC1D0072CE009F5D5B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DD07DB1D0072CE009F5D5B /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +48,8 @@
 		92AC5C791D070793001561BD /* JVSTTSPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVSTTSPlayer.h; sourceTree = "<group>"; };
 		92AC5C7A1D070793001561BD /* JVSTTSPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSTTSPlayer.m; sourceTree = "<group>"; };
 		92AC5C7D1D071123001561BD /* JVSChannelPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVSChannelPlayer.h; sourceTree = "<group>"; };
-		92DD07D71D0072A4009F5D5B /* JVSAVPlayerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVSAVPlayerWrapper.h; sourceTree = "<group>"; };
-		92DD07D81D0072A4009F5D5B /* JVSAVPlayerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSAVPlayerWrapper.m; sourceTree = "<group>"; };
+		92DD07D71D0072A4009F5D5B /* JVSAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVSAVPlayer.h; sourceTree = "<group>"; };
+		92DD07D81D0072A4009F5D5B /* JVSAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSAVPlayer.m; sourceTree = "<group>"; };
 		92DD07DB1D0072CE009F5D5B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				92AC5C7D1D071123001561BD /* JVSChannelPlayer.h */,
-				92DD07D71D0072A4009F5D5B /* JVSAVPlayerWrapper.h */,
-				92DD07D81D0072A4009F5D5B /* JVSAVPlayerWrapper.m */,
+				92DD07D71D0072A4009F5D5B /* JVSAVPlayer.h */,
+				92DD07D81D0072A4009F5D5B /* JVSAVPlayer.m */,
 				92AC5C791D070793001561BD /* JVSTTSPlayer.h */,
 				92AC5C7A1D070793001561BD /* JVSTTSPlayer.m */,
 				924A4D301CFE9FDE00EC9B12 /* JVSChannel.h */,
@@ -129,7 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				924A4D321CFE9FDE00EC9B12 /* JVSChannel.h in Headers */,
-				92DD07D91D0072A4009F5D5B /* JVSAVPlayerWrapper.h in Headers */,
+				92DD07D91D0072A4009F5D5B /* JVSAVPlayer.h in Headers */,
 				92AC5C7B1D070793001561BD /* JVSTTSPlayer.h in Headers */,
 				924A4CCC1CFE97AE00EC9B12 /* JVSChannelManager.h in Headers */,
 				92488F251CFF216800077C78 /* JVSProtocols.h in Headers */,
@@ -236,7 +236,7 @@
 				92AC5C7C1D070793001561BD /* JVSTTSPlayer.m in Sources */,
 				92488F231CFF20E100077C78 /* JVSChannelManager.m in Sources */,
 				924A4D331CFE9FDE00EC9B12 /* JVSChannel.m in Sources */,
-				92DD07DA1D0072A4009F5D5B /* JVSAVPlayerWrapper.m in Sources */,
+				92DD07DA1D0072A4009F5D5B /* JVSAVPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

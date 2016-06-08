@@ -13,10 +13,12 @@
 
 @property (retain,nonatomic) id<JVSPlayerFactory> playerFactory;
 @property (retain,nonatomic) id<JVSPlayerItemSource> itemSource;
-@property (retain,nonatomic) id<JVSPlayerDelegate> delegate;
+@property (retain,nonatomic) id<JVSChannelDelegate> delegate;
+@property (nonatomic,retain,readonly) id<JVSPlayerItem> currentItem;
 
 +(JVSChannel*)channelWithItemSource:(id<JVSPlayerItemSource>)source;
 -(void)makeReady;
+-(bool)isPaused;
 
 -(void)next;
 -(void)previous;

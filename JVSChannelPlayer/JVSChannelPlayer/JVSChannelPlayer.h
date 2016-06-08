@@ -11,6 +11,6 @@
 
 #import "JVSChannelManager.h"
 #import "JVSTTSPlayer.h"
-#import "JVSAVPlayerWrapper.h"
+#import "JVSAVPlayer.h"
 
 #endif /* JVSChannelPlayer_h */

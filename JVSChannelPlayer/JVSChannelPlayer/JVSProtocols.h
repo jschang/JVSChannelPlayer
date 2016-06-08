@@ -18,6 +18,9 @@
 @protocol JVSPlayerFactory;
 @protocol JVSPlayerItemFactory;
 
+@class JVSChannel;
+@class JVSChannelManager;
+
 @protocol JVSPlayerItem <NSObject>
 @property (nonatomic,strong) id<JVSPlayer> player;
 @end
@@ -29,6 +32,7 @@
 @protocol JVSPlayer <NSObject>
 @required
 @property (nonatomic,strong) id<JVSPlayerDelegate> delegate;
+@property (nonatomic,assign,readonly) bool isPaused;
 -(void)play:(id<JVSPlayerItem>)item;
 -(void)stop;
 -(void)pause;
@@ -42,6 +46,16 @@
 -(void)player:(id<JVSPlayer>)player didPauseItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player didResumeItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time;
+@end
+
+@protocol JVSChannelDelegate <JVSPlayerDelegate>
+@optional 
+-(void)channel:(JVSChannel*)channel hasReadyItem:(id<JVSPlayerItem>)item;
+@end
+
+@protocol JVSChannelManagerDelegate <JVSChannelDelegate>
+@optional
+-(void)channelManager:(JVSChannelManager*)player didChangeTo:(JVSChannel*)newChannel from:(JVSChannel*)prevChannel;
 @end
 
 /**

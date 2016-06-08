@@ -19,60 +19,103 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vH-Eq-Wnd">
-                                <rect key="frame" x="20" y="133" width="31" height="30"/>
+                                <rect key="frame" x="20" y="175" width="31" height="30"/>
                                 <state key="normal" title="Prev"/>
                                 <connections>
                                     <action selector="prevTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="521-4h-KcW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-5J-Zj2">
-                                <rect key="frame" x="548" y="133" width="32" height="30"/>
+                                <rect key="frame" x="548" y="175" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="nextTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5B7-Th-XFk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbt-sh-fCa">
-                                <rect key="frame" x="285" y="133" width="30" height="30"/>
+                                <rect key="frame" x="285" y="175" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="playTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="46M-30-3NC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuV-oY-rww">
-                                <rect key="frame" x="20" y="28" width="554" height="21"/>
+                                <rect key="frame" x="20" y="70" width="554" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIW-fs-62V">
-                                <rect key="frame" x="20" y="57" width="554" height="21"/>
+                                <rect key="frame" x="20" y="99" width="554" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Time in Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFW-qs-1p8">
-                                <rect key="frame" x="20" y="86" width="554" height="21"/>
+                                <rect key="frame" x="20" y="128" width="554" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4y9-Ih-ROL">
+                                <rect key="frame" x="279" y="213" width="42" height="30"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="pauseTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMb-61-k0O"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QXU-CE-beA">
+                                <rect key="frame" x="20" y="165" width="560" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdg-mw-c3a">
+                                <rect key="frame" x="25" y="20" width="119" height="30"/>
+                                <state key="normal" title="Previous Channel"/>
+                                <connections>
+                                    <action selector="previousChannelTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1gQ-pF-ama"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTB-Kd-nCR">
+                                <rect key="frame" x="488" y="20" width="92" height="30"/>
+                                <state key="normal" title="Next Channel"/>
+                                <connections>
+                                    <action selector="nextChannelTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4xX-8C-Z32"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLY-yE-OBF">
+                                <rect key="frame" x="284" y="251" width="32" height="30"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0tr-a4-Wkf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WTB-Kd-nCR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0Km-Ot-Lfq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XIW-fs-62V" secondAttribute="trailing" constant="6" id="5IA-kR-KMd"/>
+                            <constraint firstItem="QXU-CE-beA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5xc-Hv-mvf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TuV-oY-rww" secondAttribute="trailing" constant="6" id="8In-Cv-Cgm"/>
+                            <constraint firstItem="jdg-mw-c3a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FFe-57-KzK"/>
+                            <constraint firstItem="4y9-Ih-ROL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H6A-hh-185"/>
+                            <constraint firstItem="WTB-Kd-nCR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="NIF-em-FTG"/>
+                            <constraint firstItem="wLY-yE-OBF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O1Q-2l-sRu"/>
                             <constraint firstItem="qFW-qs-1p8" firstAttribute="top" secondItem="XIW-fs-62V" secondAttribute="bottom" constant="8" id="RTH-bZ-yLY"/>
                             <constraint firstItem="4vH-Eq-Wnd" firstAttribute="top" secondItem="qFW-qs-1p8" secondAttribute="bottom" constant="26" id="T4q-5i-Ccv"/>
                             <constraint firstItem="4vH-Eq-Wnd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Tox-Th-VoM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qFW-qs-1p8" secondAttribute="trailing" constant="6" id="U3c-Su-esa"/>
+                            <constraint firstItem="QXU-CE-beA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="XXy-DL-7rl"/>
                             <constraint firstItem="Qbt-sh-fCa" firstAttribute="top" secondItem="qFW-qs-1p8" secondAttribute="bottom" constant="26" id="XcO-ni-2RD"/>
-                            <constraint firstItem="TuV-oY-rww" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="YVF-JI-Roc"/>
+                            <constraint firstItem="TuV-oY-rww" firstAttribute="top" secondItem="WTB-Kd-nCR" secondAttribute="bottom" constant="20" id="cdq-gF-Bs1"/>
                             <constraint firstItem="j2t-5J-Zj2" firstAttribute="top" secondItem="qFW-qs-1p8" secondAttribute="bottom" constant="26" id="eTV-RV-Zzh"/>
                             <constraint firstItem="j2t-5J-Zj2" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="er6-TQ-as5"/>
+                            <constraint firstItem="4y9-Ih-ROL" firstAttribute="top" secondItem="Qbt-sh-fCa" secondAttribute="bottom" constant="8" id="iTQ-fg-Xa0"/>
+                            <constraint firstItem="wLY-yE-OBF" firstAttribute="top" secondItem="4y9-Ih-ROL" secondAttribute="bottom" constant="8" id="ikf-5w-Tg8"/>
                             <constraint firstItem="qFW-qs-1p8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kbB-Kr-ZDn"/>
                             <constraint firstItem="Qbt-sh-fCa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kdz-1V-tlP"/>
+                            <constraint firstItem="jdg-mw-c3a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="o9q-ne-GrD"/>
                             <constraint firstItem="XIW-fs-62V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pvV-Jo-pY6"/>
+                            <constraint firstItem="QXU-CE-beA" firstAttribute="top" secondItem="qFW-qs-1p8" secondAttribute="bottom" constant="16" id="sKB-Qi-6Nv"/>
+                            <constraint firstItem="QXU-CE-beA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tJa-r7-v98"/>
                             <constraint firstItem="XIW-fs-62V" firstAttribute="top" secondItem="TuV-oY-rww" secondAttribute="bottom" constant="8" id="wRF-BW-MWl"/>
                             <constraint firstItem="TuV-oY-rww" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="y7p-H7-3lw"/>
                         </constraints>
