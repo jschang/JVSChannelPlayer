@@ -28,6 +28,7 @@
     self.itemFactory = [[DemoItemFactory alloc] init];
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"JVSChannelPlayerDemo"];
+    NSLog(@"%@",[NSPersistentStore MR_urlForStoreName:[MagicalRecord defaultStoreName]].path);
     
     //[self addChannel:4 withFetchCount:2 andTitle:@"Gizmodo" andUrl:@"http://feeds.gawker.com/gizmodo/full"];
     //[self addChannel:5 withFetchCount:2 andTitle:@"TechCrunch" andUrl:@"http://feeds.feedburner.com/TechCrunch/"];
