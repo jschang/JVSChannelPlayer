@@ -38,20 +38,20 @@
         [avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1,10) 
             queue:nil 
             usingBlock:^(CMTime time) {
-                if([self.delegate respondsToSelector:@selector(player:playingItem:didProgress:)]) {
-                    dispatch_async(dispatch_get_main_queue(),^(){
+                dispatch_async(dispatch_get_main_queue(),^(){
+                    if([self.delegate respondsToSelector:@selector(player:playingItem:didProgress:)]) {
                         [self.delegate player:self playingItem:self.currentItem didProgress:time];
-                    });
-                }
+                    }
+                });
             }];
         [avPlayer setRate:1.0f];
         [avPlayer play];
         __block id<JVSAVPlayerItem> thisItem = self.currentItem;
-        if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
-            dispatch_async(dispatch_get_main_queue(),^(){
+        dispatch_async(dispatch_get_main_queue(),^(){
+            if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
                 [self.delegate player:self didBeginItem:thisItem];
-            });
-        }
+            }
+        });
     });
 }
 -(void)pause {
@@ -60,11 +60,11 @@
         [avPlayer setRate:0.0f];
         [avPlayer pause];
         __block id<JVSAVPlayerItem> item = self.currentItem;
-        if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
-            dispatch_async(dispatch_get_main_queue(),^(){
+        dispatch_async(dispatch_get_main_queue(),^(){
+            if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
                 [self.delegate player:self didPauseItem:item];
-            });
-        }
+            }
+        });
     }
 }
 -(void)resume {
@@ -72,11 +72,11 @@
         [avPlayer setRate:1.0f];
         [avPlayer play];
         __block id<JVSAVPlayerItem> item = self.currentItem;
-        if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
-            dispatch_async(dispatch_get_main_queue(),^(){
+        dispatch_async(dispatch_get_main_queue(),^(){
+            if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
                 [self.delegate player:self didResumeItem:item];
-            });
-        }
+            }
+        });
     }
 }
 -(void)stop {
@@ -85,20 +85,20 @@
         [avPlayer setRate:0.0f];
         [avPlayer pause];
         __block id<JVSAVPlayerItem> item = self.currentItem;
-        if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
-            dispatch_async(dispatch_get_main_queue(),^(){
+        dispatch_async(dispatch_get_main_queue(),^(){
+            if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
                 [self.delegate player:self didStopItem:item];
-            });
-        }
+            }
+        });
     }
 }
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    if(self.delegate && [self.delegate respondsToSelector:@selector(player:didFinishItem:)]) {
-        __block id<JVSAVPlayerItem> item = self.currentItem;
-        dispatch_async(dispatch_get_main_queue(),^(){
+    __block id<JVSAVPlayerItem> item = self.currentItem;
+    dispatch_async(dispatch_get_main_queue(),^(){
+        if(self.delegate && [self.delegate respondsToSelector:@selector(player:didFinishItem:)]) {
             [self.delegate player:self didFinishItem:item];
-        });
-    }
+        }
+    });
 }
 
 @end

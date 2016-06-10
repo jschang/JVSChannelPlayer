@@ -86,39 +86,39 @@
 }
 
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance *)utterance {
-    if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
-        dispatch_async(dispatch_get_main_queue(),^(){
+    dispatch_async(dispatch_get_main_queue(),^(){
+        if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
             [self.delegate player:self didPauseItem:self.currentItem];
-        });
-    }
+        }
+    });
 }
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance {
-    if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
-        dispatch_async(dispatch_get_main_queue(),^(){
+    dispatch_async(dispatch_get_main_queue(),^(){
+        if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
             [self.delegate player:self didBeginItem:self.currentItem];
-        });
-    }
+        }
+    });
 }
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance {
-    if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
-        dispatch_async(dispatch_get_main_queue(),^(){
+    dispatch_async(dispatch_get_main_queue(),^(){
+        if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
             [self.delegate player:self didStopItem:self.currentItem];
-        });
-    }
+        }
+    });
 }
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
-    if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didFinishItem:)]) {
-        dispatch_async(dispatch_get_main_queue(),^(){
+    dispatch_async(dispatch_get_main_queue(),^(){
+        if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didFinishItem:)]) {
             [self.delegate player:self didFinishItem:self.currentItem];
-        });
-    }
+        }
+    });
 }
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance *)utterance {
-    if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
-        dispatch_async(dispatch_get_main_queue(),^(){
+    dispatch_async(dispatch_get_main_queue(),^(){
+        if(self.delegate && self.currentItem && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
             [self.delegate player:self didResumeItem:self.currentItem];
-        });
-    }
+        }
+    });
 }
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance {
 }
