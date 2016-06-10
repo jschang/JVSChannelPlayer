@@ -12,9 +12,9 @@
 @interface DemoItemBase : NSObject<JVSPlayerItem>
 
 @property (nonatomic,strong) id<JVSPlayer> player;
-@property (nonatomic,strong) NSNumber *id;
-@property (nonatomic,strong) NSString *author;
-@property (nonatomic,strong) NSString *title;
-@property (nonatomic,strong) NSString *articleUrl;
+@property (nonatomic,copy) NSNumber *id;
+@property (nonatomic,copy) NSString *author;
+@property (nonatomic,copy) NSString *title;
+@property (nonatomic,copy) NSString *articleUrl;
 
 @end

@@ -12,6 +12,6 @@
 @interface DemoTTSItem : DemoItemBase<JVSTTSPlayerItem>
 
 @property (nonatomic,strong) JVSAVPlayer* player;
-@property (nonatomic,strong) NSString *text;
+@property (nonatomic,copy) NSString *text;
 
 @end

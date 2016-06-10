@@ -11,6 +11,6 @@
 
 @interface DemoChannel : JVSChannel
 
-@property (strong,nonatomic) NSString *title;
+@property (copy,nonatomic) NSString *title;
 
 @end

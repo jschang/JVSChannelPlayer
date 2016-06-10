@@ -11,7 +11,7 @@
 
 @interface DemoAVItem : DemoItemBase<JVSAVPlayerItem>
 
-@property (nonatomic,strong) NSString *mediaUrl;
+@property (nonatomic,copy) NSString *mediaUrl;
 @property (nonatomic) bool isVideo;
 
 @end
