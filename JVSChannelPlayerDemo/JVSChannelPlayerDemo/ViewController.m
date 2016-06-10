@@ -115,6 +115,9 @@
 -(void)player:(id<JVSPlayer>)player didResumeItem:(DemoItemBase*)item {
     NSLog(@"Did resume item");
 }
+-(void)player:(id<JVSPlayer>)player didStopItem:(DemoItemBase*)item {
+    NSLog(@"Did stop item");
+}
 
 -(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time {
     double dTime = ((double)time.value/(double)time.timescale);

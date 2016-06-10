@@ -33,6 +33,7 @@
 		92CAF09A1D01BEAC0079AB24 /* RSSOrAtomFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF0991D01BEAC0079AB24 /* RSSOrAtomFeedParser.m */; };
 		92CAF0D91D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92CAF0D11D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodeld */; };
 		92DD07D61D0071F0009F5D5B /* DemoPlayerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DD07D51D0071F0009F5D5B /* DemoPlayerFactory.m */; };
+		92DE34461D0B0164003694C5 /* NSString+StripHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DE34451D0B0164003694C5 /* NSString+StripHtml.m */; };
 		BE21293111F7CA248780B4CB /* libPods-JVSChannelPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 152F2F42A5B3FD868EEFE1A4 /* libPods-JVSChannelPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,8 @@
 		92CAF0D21D01DC6E0079AB24 /* JVSChannelPlayerDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JVSChannelPlayerDemo.xcdatamodel; sourceTree = "<group>"; };
 		92DD07D41D0071F0009F5D5B /* DemoPlayerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPlayerFactory.h; sourceTree = "<group>"; };
 		92DD07D51D0071F0009F5D5B /* DemoPlayerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPlayerFactory.m; sourceTree = "<group>"; };
+		92DE34441D0B0164003694C5 /* NSString+StripHtml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StripHtml.h"; sourceTree = "<group>"; };
+		92DE34451D0B0164003694C5 /* NSString+StripHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StripHtml.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,8 @@
 				924A4CFC1CFE97F300EC9B12 /* LaunchScreen.storyboard */,
 				924A4CFF1CFE97F300EC9B12 /* Info.plist */,
 				924A4CEE1CFE97F300EC9B12 /* Supporting Files */,
+				92DE34441D0B0164003694C5 /* NSString+StripHtml.h */,
+				92DE34451D0B0164003694C5 /* NSString+StripHtml.m */,
 			);
 			path = JVSChannelPlayerDemo;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				921C80881D03391F0057BCBD /* DemoAVItem.m in Sources */,
+				92DE34461D0B0164003694C5 /* NSString+StripHtml.m in Sources */,
 				92DD07D61D0071F0009F5D5B /* DemoPlayerFactory.m in Sources */,
 				921C80801D0334580057BCBD /* Feed.m in Sources */,
 				92488F2C1CFF282800077C78 /* LocalCacheItemSource.m in Sources */,

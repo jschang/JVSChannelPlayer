@@ -15,6 +15,7 @@
 
 #import "Items/DemoAVItem.h"
 #import "Items/DemoTTSItem.h"
+#import "NSString+StripHtml.h"
 
 @implementation DemoItemFactory
 
@@ -50,7 +51,7 @@
         ttsItem.title = item.title;
         ttsItem.articleUrl = item.link;
         ttsItem.author = item.author;
-        ttsItem.text = item.summary;
+        ttsItem.text = [item.summary stripHtml];
         ret = ttsItem;
     }
     return ret;

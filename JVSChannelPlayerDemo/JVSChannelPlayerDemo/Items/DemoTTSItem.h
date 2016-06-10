@@ -13,5 +13,6 @@
 
 @property (nonatomic,strong) JVSAVPlayer* player;
 @property (nonatomic,copy) NSString *text;
+@property (nonatomic,copy) NSString *language;
 
 @end

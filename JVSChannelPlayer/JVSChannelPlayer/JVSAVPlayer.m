@@ -83,9 +83,16 @@
         [avPlayer pause];
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
-                [self.delegate player:self didResumeItem:self.currentItem];
+                [self.delegate player:self didStopItem:self.currentItem];
             });
         }
+    }
+}
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(player:didFinishItem:)]) {
+        dispatch_async(dispatch_get_main_queue(),^(){
+            [self.delegate player:self didFinishItem:self.currentItem];
+        });
     }
 }
 

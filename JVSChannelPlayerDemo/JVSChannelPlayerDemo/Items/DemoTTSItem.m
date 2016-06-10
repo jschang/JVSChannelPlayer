@@ -11,6 +11,8 @@
 @implementation DemoTTSItem
 
 @dynamic player;
+@synthesize title;
 @synthesize text;
+@synthesize language;
 
 @end

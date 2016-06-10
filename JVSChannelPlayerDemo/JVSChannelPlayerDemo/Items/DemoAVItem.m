@@ -9,8 +9,6 @@
 #import "DemoAVItem.h"
 
 @implementation DemoAVItem
-
 @synthesize mediaUrl;
 @synthesize isVideo;
-
 @end

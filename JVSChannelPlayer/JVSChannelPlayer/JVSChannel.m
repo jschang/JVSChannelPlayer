@@ -39,6 +39,9 @@
 -(void)next {
     [self.itemSource fetchItemsAfter:self.currentItem withCount:1 andThen:^(NSArray *items) {
         if(items!=nil && items.count) {
+            if(currentItem && currentItem.player && currentItem.player.delegate) {
+                currentItem.player = nil;
+            }
             currentItem = items[0];
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
             self.currentItem.player.delegate = self.delegate;
@@ -57,6 +60,9 @@
 -(void)previous {
     [self.itemSource fetchItemsBefore:self.currentItem withCount:1 andThen:^(NSArray *items) {
         if(items!=nil && items.count) {
+            if(currentItem && currentItem.player && currentItem.player.delegate) {
+                currentItem.player.delegate = nil;
+            }
             currentItem = items[0];
             self.currentItem.player = [self.playerFactory playerForItem:self.currentItem];
             self.currentItem.player.delegate = self.delegate;

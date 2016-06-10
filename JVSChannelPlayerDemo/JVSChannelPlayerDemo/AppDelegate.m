@@ -30,9 +30,9 @@
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"JVSChannelPlayerDemo"];
     NSLog(@"%@",[NSPersistentStore MR_urlForStoreName:[MagicalRecord defaultStoreName]].path);
     
-    //[self addChannel:4 withFetchCount:2 andTitle:@"Gizmodo" andUrl:@"http://feeds.gawker.com/gizmodo/full"];
-    //[self addChannel:5 withFetchCount:2 andTitle:@"TechCrunch" andUrl:@"http://feeds.feedburner.com/TechCrunch/"];
-    //[self addChannel:6 withFetchCount:2 andTitle:@"C-Net" andUrl:@"http://www.cnet.com/rss/news/"];
+    [self addChannel:4 withFetchCount:2 andTitle:@"Gizmodo" andUrl:@"http://feeds.gawker.com/gizmodo/full"];
+    [self addChannel:5 withFetchCount:2 andTitle:@"TechCrunch" andUrl:@"http://feeds.feedburner.com/TechCrunch/"];
+    [self addChannel:6 withFetchCount:2 andTitle:@"C-Net" andUrl:@"http://www.cnet.com/rss/news/"];
     [self addChannel:3 withFetchCount:2 andTitle:@"Get It Done" andUrl:@"http://www.quickanddirtytips.com/xml/getitdone.xml"];
     [self addChannel:1 withFetchCount:2 andTitle:@"The Memory Palace" andUrl:@"http://feeds.feedburner.com/thememorypalace?format=xml"];
     [self addChannel:2 withFetchCount:2 andTitle:@"The Economist - Money Talks" andUrl:@"https://feeds.feedburner.com/economst/audiovideo/moneytalks?format=xml"];

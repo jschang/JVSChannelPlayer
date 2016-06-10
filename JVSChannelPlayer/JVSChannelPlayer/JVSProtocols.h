@@ -41,8 +41,9 @@
 
 @protocol JVSPlayerDelegate <NSObject>
 @optional
--(void)player:(id<JVSPlayer>)player didFinishItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player didBeginItem:(id<JVSPlayerItem>)item;
+-(void)player:(id<JVSPlayer>)player didStopItem:(id<JVSPlayerItem>)item;
+-(void)player:(id<JVSPlayer>)player didFinishItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player didPauseItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player didResumeItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time;
