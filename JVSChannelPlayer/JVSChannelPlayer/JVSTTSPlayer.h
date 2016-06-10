@@ -11,8 +11,8 @@
 #import "JVSProtocols.h"
 
 @protocol JVSTTSPlayerItem<JVSPlayerItem>
-@property (nonatomic,strong) NSString* title;
-@property (nonatomic,strong) NSString* text;
+@property (nonatomic,copy) NSString* title;
+@property (nonatomic,copy) NSString* text;
 @end
 
 @interface JVSTTSPlayer : NSObject<JVSPlayer>

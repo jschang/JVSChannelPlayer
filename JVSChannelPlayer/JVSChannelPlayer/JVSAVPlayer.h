@@ -11,8 +11,8 @@
 #import "JVSProtocols.h"
 
 @protocol JVSAVPlayerItem<JVSPlayerItem>
-@property (nonatomic,strong) NSString* title;
-@property (nonatomic,strong) NSString* mediaUrl;
+@property (nonatomic,copy) NSString* title;
+@property (nonatomic,copy) NSString* mediaUrl;
 @end
 
 @interface JVSAVPlayer : NSObject<JVSPlayer,AVAudioPlayerDelegate>
