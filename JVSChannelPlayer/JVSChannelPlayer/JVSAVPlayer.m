@@ -46,9 +46,10 @@
             }];
         [avPlayer setRate:1.0f];
         [avPlayer play];
+        __block id<JVSAVPlayerItem> thisItem = self.currentItem;
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
-                [self.delegate player:self didBeginItem:item];
+                [self.delegate player:self didBeginItem:thisItem];
             });
         }
     });
@@ -58,9 +59,10 @@
         isPaused = true;
         [avPlayer setRate:0.0f];
         [avPlayer pause];
+        __block id<JVSAVPlayerItem> item = self.currentItem;
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didPauseItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
-                [self.delegate player:self didPauseItem:self.currentItem];
+                [self.delegate player:self didPauseItem:item];
             });
         }
     }
@@ -69,9 +71,10 @@
     if(self.isPaused) {
         [avPlayer setRate:1.0f];
         [avPlayer play];
+        __block id<JVSAVPlayerItem> item = self.currentItem;
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didResumeItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
-                [self.delegate player:self didResumeItem:self.currentItem];
+                [self.delegate player:self didResumeItem:item];
             });
         }
     }
@@ -81,17 +84,19 @@
         [avPlayer cancelPendingPrerolls];
         [avPlayer setRate:0.0f];
         [avPlayer pause];
+        __block id<JVSAVPlayerItem> item = self.currentItem;
         if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
             dispatch_async(dispatch_get_main_queue(),^(){
-                [self.delegate player:self didStopItem:self.currentItem];
+                [self.delegate player:self didStopItem:item];
             });
         }
     }
 }
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     if(self.delegate && [self.delegate respondsToSelector:@selector(player:didFinishItem:)]) {
+        __block id<JVSAVPlayerItem> item = self.currentItem;
         dispatch_async(dispatch_get_main_queue(),^(){
-            [self.delegate player:self didFinishItem:self.currentItem];
+            [self.delegate player:self didFinishItem:item];
         });
     }
 }

@@ -97,26 +97,26 @@
 }
 
 -(void)channel:(DemoChannel*)channel hasReadyItem:(DemoItemBase*)item {
-    NSLog(@"Channel has new item");
+    NSLog(@"Channel has new item %@",item.articleUrl);
     self.currentChannelName.text = channel.title;
     [_appDelegate.channelPlayer play];
 }
 
 -(void)player:(id<JVSPlayer>)player didFinishItem:(DemoItemBase*)item {
-    NSLog(@"Did finish item");
+    NSLog(@"Did finish item %@",item.articleUrl);
 }
 -(void)player:(id<JVSPlayer>)player didBeginItem:(DemoItemBase*)item {
-    NSLog(@"Did begin item");
+    NSLog(@"Did begin item %@",item.articleUrl);
     self.currentItemName.text = item.title;
 }
 -(void)player:(id<JVSPlayer>)player didPauseItem:(DemoItemBase*)item {
-    NSLog(@"Did pause item");
+    NSLog(@"Did pause item %@",item.articleUrl);
 }
 -(void)player:(id<JVSPlayer>)player didResumeItem:(DemoItemBase*)item {
-    NSLog(@"Did resume item");
+    NSLog(@"Did resume item %@",item.articleUrl);
 }
 -(void)player:(id<JVSPlayer>)player didStopItem:(DemoItemBase*)item {
-    NSLog(@"Did stop item");
+    NSLog(@"Did stop item %@",item.articleUrl);
 }
 
 -(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time {
