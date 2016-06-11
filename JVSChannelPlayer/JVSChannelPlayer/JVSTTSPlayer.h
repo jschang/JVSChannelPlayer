@@ -17,4 +17,5 @@
 @end
 
 @interface JVSTTSPlayer : NSObject<JVSPlayer,AVSpeechSynthesizerDelegate>
+@property (retain,nonatomic) AVSpeechSynthesisVoice *voice;
 @end

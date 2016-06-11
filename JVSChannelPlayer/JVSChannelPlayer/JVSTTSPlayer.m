@@ -12,8 +12,6 @@
 @property (strong,nonatomic) id<JVSTTSPlayerItem> currentItem;
 @property (retain,nonatomic) AVSpeechSynthesizer *synth;
 @property (retain,nonatomic) AVSpeechUtterance *utter;
-@property (retain,nonatomic) AVSpeechSynthesisVoice *voice;
-@property (retain,nonatomic) NSArray<AVSpeechSynthesisVoice*> *voices; 
 @end
 
 @interface JVSTTSPlayer() 
@@ -23,7 +21,7 @@
 
 @implementation JVSTTSPlayer
 
-@synthesize synth, utter, voice, voices, delegate, isPaused, dispatchQueue;
+@synthesize synth, utter, voice, delegate, isPaused, dispatchQueue;
 
 -(id)init {
     self = [super init];
@@ -31,24 +29,12 @@
     self.synth = [[AVSpeechSynthesizer alloc] init];
     self.synth.delegate = self;
     self.itemsByUtter = [[NSMutableDictionary alloc] init];
-    //self.voices = [AVSpeechSynthesisVoice speechVoices];
     dispatchQueue = dispatch_queue_create("JVSTTSPlayer", DISPATCH_QUEUE_CONCURRENT);
     self.currentItem = nil;
     isPaused = false;
     return self;
 }
 -(void)setCurrentItem:(id<JVSTTSPlayerItem>)item {
-    /*NSMutableArray *localVoices = [[NSMutableArray alloc] init]; 
-    for(AVSpeechSynthesisVoice *voice in voices) {
-        if([voice.language isEqualToString:item.language]) {
-            [localVoices addObject:voice];
-        }
-    }
-    if(localVoices.count==0) {
-        self.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en"];
-    } else {
-        self.voice = localVoices[(int)(localVoices.count * ((float)rand() / RAND_MAX))];
-    }*/
     _currentItem = item;
 }
 -(bool)isPaused {
@@ -61,7 +47,9 @@
             self.currentItem = item;
             utter = [AVSpeechUtterance speechUtteranceWithString:item.text];
             [_itemsByUtter setObject:item forKey:utter.description];
-            //utter.voice = self.voice;
+            if(self.voice) {
+                utter.voice = self.voice;
+            }
             [synth speakUtterance:utter];
             NSLog(@"utterance.description=%@",utter.description);
         }
