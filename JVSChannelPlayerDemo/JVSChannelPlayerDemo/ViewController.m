@@ -119,11 +119,19 @@
     NSLog(@"Did stop item %@",item.articleUrl);
 }
 
--(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time {
+-(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time ofDuration:(CMTime)duration {
     double dTime = ((double)time.value/(double)time.timescale);
     int minutes = (int)(dTime / 60.0);
     int seconds = ((int)dTime) % 60;
-    [self setMinutes:minutes andSeconds:seconds];
+    if(!CMTIME_IS_INDEFINITE(duration)) {
+        double dDuration = ((double)duration.value/(double)duration.timescale);
+        int durationMinutes = (int)(dDuration / 60.0);
+        int durationSeconds = ((int)dDuration) % 60;
+        self.currentProgress.text = [NSString stringWithFormat:@"%.2d:%.2d of %.2d:%2.d",minutes,seconds,durationMinutes,durationSeconds];
+        [self.progressBar setProgress:dTime/dDuration animated:YES];
+    } else {
+        [self setMinutes:minutes andSeconds:seconds];
+    }
 }
 
 @end

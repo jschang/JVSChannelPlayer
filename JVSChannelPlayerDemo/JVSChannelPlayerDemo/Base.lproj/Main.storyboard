@@ -124,6 +124,7 @@
                         <outlet property="currentChannelName" destination="TuV-oY-rww" id="3PW-Fv-6lj"/>
                         <outlet property="currentItemName" destination="XIW-fs-62V" id="HQj-Md-yIj"/>
                         <outlet property="currentProgress" destination="qFW-qs-1p8" id="wEu-ee-q5C"/>
+                        <outlet property="progressBar" destination="QXU-CE-beA" id="ptY-VB-hkm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

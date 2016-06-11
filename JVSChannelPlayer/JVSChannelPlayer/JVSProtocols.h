@@ -25,6 +25,17 @@
 @property (nonatomic,strong) id<JVSPlayer> player;
 @end
 
+@protocol JVSAVPlayerItem<JVSPlayerItem>
+@property (nonatomic,copy) NSString* title;
+@property (nonatomic,copy) NSString* mediaUrl;
+@end
+
+@protocol JVSTTSPlayerItem<JVSPlayerItem>
+@property (nonatomic,copy) NSString* title;
+@property (nonatomic,copy) NSString* text;
+@property (nonatomic,copy) NSString* language;
+@end
+
 /**
  * Player that plays a single item.  Multiple types may operate on a channel
  * Implement the JVSPlayerFactory to provide single instances of these.
@@ -46,7 +57,7 @@
 -(void)player:(id<JVSPlayer>)player didFinishItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player didPauseItem:(id<JVSPlayerItem>)item;
 -(void)player:(id<JVSPlayer>)player didResumeItem:(id<JVSPlayerItem>)item;
--(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time;
+-(void)player:(id<JVSPlayer>)player playingItem:(id<JVSPlayerItem>)item didProgress:(CMTime)time ofDuration:(CMTime)duration;
 @end
 
 @protocol JVSChannelDelegate <JVSPlayerDelegate>

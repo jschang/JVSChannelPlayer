@@ -33,14 +33,14 @@
     dispatch_async(dispatchQueue, ^(){
         NSLog(@"JVSAVPlayer - mediaUrl:%@",item.mediaUrl);
         self.currentItem = item;
-        AVPlayerItem *avItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:item.mediaUrl]];
+        __block AVPlayerItem *avItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:item.mediaUrl]];
         [avPlayer replaceCurrentItemWithPlayerItem:avItem];
         [avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1,10) 
             queue:nil 
             usingBlock:^(CMTime time) {
                 dispatch_async(dispatch_get_main_queue(),^(){
-                    if([self.delegate respondsToSelector:@selector(player:playingItem:didProgress:)]) {
-                        [self.delegate player:self playingItem:self.currentItem didProgress:time];
+                    if([self.delegate respondsToSelector:@selector(player:playingItem:didProgress:ofDuration:)]) {
+                        [self.delegate player:self playingItem:self.currentItem didProgress:time ofDuration:avItem.duration];
                     }
                 });
             }];

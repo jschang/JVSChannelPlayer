@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentChannelName;
 @property (weak, nonatomic) IBOutlet UILabel *currentItemName;
 @property (weak, nonatomic) IBOutlet UILabel *currentProgress;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end
 
