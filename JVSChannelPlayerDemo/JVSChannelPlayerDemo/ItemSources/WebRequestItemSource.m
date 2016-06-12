@@ -83,9 +83,6 @@ NSObject *idLock;
                 feed.summary = info.summary;
                 feed.displayName = info.title;
                 feed.lastFetchDate = [NSDate date];
-                [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
-                    [localContext MR_saveToPersistentStoreAndWait];
-                }];
                 [feed.managedObjectContext MR_saveToPersistentStoreAndWait];
             } else {
                 feed = feeds[0];

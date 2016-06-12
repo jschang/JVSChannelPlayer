@@ -12,18 +12,19 @@
 @property (strong,nonatomic) AVPlayer *avPlayer;
 @property (strong,nonatomic) id<JVSAVPlayerItem> currentItem;
 @property (nonatomic,retain) dispatch_queue_t dispatchQueue;
-
+@property (nonatomic,retain) id lastTimeObserver;
 @end
 
 @implementation JVSAVPlayer
 
-@synthesize avPlayer, delegate, isPaused, dispatchQueue;
+@synthesize avPlayer, delegate, isPaused, dispatchQueue, lastTimeObserver;
 
 -(id)init {
     self = [super init];
     if(!self) return self;
     self.avPlayer = [[AVPlayer alloc] init];
     self.currentItem = nil;
+    self.lastTimeObserver = nil;
     isPaused = false;
     dispatchQueue = dispatch_queue_create("JVSAVPlayer", DISPATCH_QUEUE_CONCURRENT);
     return self;
@@ -33,20 +34,23 @@
     dispatch_async(dispatchQueue, ^(){
         NSLog(@"JVSAVPlayer - mediaUrl:%@",item.mediaUrl);
         self.currentItem = item;
+        __block id<JVSAVPlayerItem> thisItem = item;
         __block AVPlayerItem *avItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:item.mediaUrl]];
         [avPlayer replaceCurrentItemWithPlayerItem:avItem];
-        [avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1,10) 
+        if(lastTimeObserver!=nil) {
+            [avPlayer removeTimeObserver:lastTimeObserver];
+        }
+        lastTimeObserver = [avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1,10) 
             queue:nil 
             usingBlock:^(CMTime time) {
                 dispatch_async(dispatch_get_main_queue(),^(){
                     if([self.delegate respondsToSelector:@selector(player:playingItem:didProgress:ofDuration:)]) {
-                        [self.delegate player:self playingItem:self.currentItem didProgress:time ofDuration:avItem.duration];
+                        [self.delegate player:self playingItem:thisItem didProgress:time ofDuration:avItem.duration];
                     }
                 });
             }];
         [avPlayer setRate:1.0f];
         [avPlayer play];
-        __block id<JVSAVPlayerItem> thisItem = self.currentItem;
         dispatch_async(dispatch_get_main_queue(),^(){
             if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didBeginItem:)]) {
                 [self.delegate player:self didBeginItem:thisItem];

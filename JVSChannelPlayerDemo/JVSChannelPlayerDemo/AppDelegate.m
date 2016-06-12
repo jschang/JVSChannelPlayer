@@ -30,6 +30,8 @@
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"JVSChannelPlayerDemo"];
     NSLog(@"%@",[NSPersistentStore MR_urlForStoreName:[MagicalRecord defaultStoreName]].path);
     
+    [self addChannel:7 withFetchCount:2 andTitle:@"r/WritingPrompts" andUrl:@"http://www.reddit.com/r/writingprompts/.rss"];
+    [self addChannel:8 withFetchCount:2 andTitle:@"r/NoSleep" andUrl:@"http://www.reddit.com/r/nosleep/.rss"];
     [self addChannel:4 withFetchCount:2 andTitle:@"Gizmodo" andUrl:@"http://feeds.gawker.com/gizmodo/full"];
     [self addChannel:5 withFetchCount:2 andTitle:@"TechCrunch" andUrl:@"http://feeds.feedburner.com/TechCrunch/"];
     [self addChannel:6 withFetchCount:2 andTitle:@"C-Net" andUrl:@"http://www.cnet.com/rss/news/"];
