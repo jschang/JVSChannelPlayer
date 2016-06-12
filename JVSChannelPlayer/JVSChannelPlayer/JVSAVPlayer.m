@@ -88,6 +88,7 @@
         [avPlayer cancelPendingPrerolls];
         [avPlayer setRate:0.0f];
         [avPlayer pause];
+        [avPlayer replaceCurrentItemWithPlayerItem:nil];
         __block id<JVSAVPlayerItem> item = self.currentItem;
         dispatch_async(dispatch_get_main_queue(),^(){
             if(self.delegate!=nil && [self.delegate respondsToSelector:@selector(player:didStopItem:)]) {
